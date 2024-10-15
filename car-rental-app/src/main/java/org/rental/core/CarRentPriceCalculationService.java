@@ -1,7 +1,7 @@
 package org.rental.core;
 
-import org.rental.rest.CarRentPriceCalculationRequest;
-import org.rental.rest.CarRentPriceCalculationResponse;
+import org.rental.dto.CarRentPriceCalculationRequest;
+import org.rental.dto.CarRentPriceCalculationResponse;
 
 public interface CarRentPriceCalculationService {
 

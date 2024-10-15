@@ -1,4 +1,4 @@
-package org.rental.rest;
+package org.rental.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
