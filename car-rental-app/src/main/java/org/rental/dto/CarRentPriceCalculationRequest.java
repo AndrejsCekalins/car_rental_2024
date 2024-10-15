@@ -12,6 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CarRentPriceCalculationRequest {
+
     private String personFirstName;
     private String personLastName;
     private Date agreementDateFrom;

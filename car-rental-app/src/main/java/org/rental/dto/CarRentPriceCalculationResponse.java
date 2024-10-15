@@ -7,12 +7,13 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CarRentPriceCalculationResponse {
+public class CarRentPriceCalculationResponse extends CoreResponse {
 
     private String personFirstName;
     private String personLastName;
@@ -21,4 +22,5 @@ public class CarRentPriceCalculationResponse {
 
     private BigDecimal agreementPrice;
 
+    public CarRentPriceCalculationResponse(List<ValidationError> errors) {super(errors);}
 }
