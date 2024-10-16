@@ -35,7 +35,7 @@ public class CarRentPriceCalculationServiceImpl implements CarRentPriceCalculati
         response.setPersonFirstName(request.getPersonFirstName());
         response.setPersonLastName(request.getPersonLastName());
         response.setAgreementDateFrom(request.getAgreementDateFrom());
-        response.setGetAgreementDateTo(request.getAgreementDateTo());
+        response.setAgreementDateTo(request.getAgreementDateTo());
         response.setAgreementPrice(price);
         return response;
     }
