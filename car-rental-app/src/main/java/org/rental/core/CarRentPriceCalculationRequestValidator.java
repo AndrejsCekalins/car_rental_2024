@@ -2,7 +2,6 @@ package org.rental.core;
 
 import org.rental.dto.ValidationError;
 import org.rental.dto.CarRentPriceCalculationRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -13,8 +12,6 @@ import java.util.Optional;
 @Component
 class CarRentPriceCalculationRequestValidator {
 
-    @Autowired private DateTimeService dateTimeService;
-
     public List<ValidationError> validate(CarRentPriceCalculationRequest request) {
         List<ValidationError> errors = new ArrayList<>();
         validatePersonFirstName(request).ifPresent(errors::add);
@@ -22,8 +19,6 @@ class CarRentPriceCalculationRequestValidator {
         validateAgreementDateFrom(request).ifPresent(errors::add);
         validateAgreementDateTo(request).ifPresent((errors::add));
         validateDateFromLessThenDateTo(request).ifPresent(errors::add);
-        validateDateFromInFuture(request).ifPresent(errors::add);
-        validateDateToInFuture(request).ifPresent(errors::add);
         return errors;
     }
 
@@ -60,19 +55,4 @@ class CarRentPriceCalculationRequestValidator {
                 : Optional.empty();
     }
 
-    private Optional<ValidationError> validateDateFromInFuture(CarRentPriceCalculationRequest request) {
-        Date dateFrom = request.getAgreementDateFrom();
-        Date currentDateTime =dateTimeService.getCurrentDateTime();
-        return (dateFrom != null && dateFrom.before(currentDateTime))
-                ? Optional.of(new ValidationError("agreementDateFrom", "Must be in the future!"))
-                : Optional.empty();
-    }
-
-    private Optional<ValidationError> validateDateToInFuture(CarRentPriceCalculationRequest request) {
-        Date dateTo = request.getAgreementDateTo();
-        Date currentDateTime = dateTimeService.getCurrentDateTime();
-        return (dateTo != null && dateTo.before(currentDateTime))
-                ? Optional.of(new ValidationError("agreementDateTo", "Must be in the future!"))
-                : Optional.empty();
-    }
 }

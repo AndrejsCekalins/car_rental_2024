@@ -101,7 +101,7 @@ class CarRentPriceCalculationServiceImplTest {
         when(request.getAgreementDateTo()).thenReturn(dateTo);
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertFalse(response.hasErrors());
-        assertEquals(response.getAgreementDateTo(), dateTo);
+        assertEquals(response.getGetAgreementDateTo(), dateTo);
     }
 
     @Test
