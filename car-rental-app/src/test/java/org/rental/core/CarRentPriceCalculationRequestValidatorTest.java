@@ -1,149 +1,57 @@
 package org.rental.core;
 
+
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.rental.core.validations.CarRentRequestValidation;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.rental.dto.ValidationError;
+import org.springframework.test.util.ReflectionTestUtils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class CarRentPriceCalculationRequestValidatorTest {
 
-    private CarRentPriceCalculationRequestValidator requestValidator = new CarRentPriceCalculationRequestValidator();
+   @InjectMocks
+   private CarRentPriceCalculationRequestValidator requestValidator;
 
     @Test
-    public void shouldReturnErrorWhenPersonFirstNameIsNull() {
+    public void shouldNotReturnErrors() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getPersonFirstName()).thenReturn(null);
-        when(request.getPersonLastName()).thenReturn("lastName");
-        when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2024"));
-        when(request.getAgreementDateTo()).thenReturn(createDate("02.01.2024"));
-        List<ValidationError> errors = requestValidator.validate(request);
-        assertFalse(errors.isEmpty());
-        assertEquals(errors.size(), 1);
-        assertEquals(errors.get(0).getField(), "personFirstName");
-        assertEquals(errors.get(0).getMessage(), "Must not be empty!");
-    }
-
-    @Test
-    public void shouldReturnErrorWhenPersonFirstNameIsEmpty() {
-        CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getPersonFirstName()).thenReturn("");
-        when(request.getPersonLastName()).thenReturn("lastName");
-        when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2024"));
-        when(request.getAgreementDateTo()).thenReturn(createDate("02.01.2024"));
-        List<ValidationError> errors = requestValidator.validate(request);
-        assertFalse(errors.isEmpty());
-        assertEquals(errors.size(), 1);
-        assertEquals(errors.get(0).getField(), "personFirstName");
-        assertEquals(errors.get(0).getMessage(), "Must not be empty!");
-    }
-
-    @Test
-    public void shouldReturnErrorWhenPersonLastNameIsEmpty() {
-        CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getPersonFirstName()).thenReturn("firstName");
-        when(request.getPersonLastName()).thenReturn(null);
-        when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2024"));
-        when(request.getAgreementDateTo()).thenReturn(createDate("02.01.2024"));
-        List<ValidationError> errors = requestValidator.validate(request);
-        assertFalse(errors.isEmpty());
-        assertEquals(errors.size(), 1);
-        assertEquals(errors.get(0).getField(), "personLastName");
-        assertEquals(errors.get(0).getMessage(), "Must not be empty!");
-    }
-
-    @Test
-    public void shouldReturnErrorWhenPersonLastNameIsNull() {
-        CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getPersonFirstName()).thenReturn("firstName");
-        when(request.getPersonLastName()).thenReturn("");
-        when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2024"));
-        when(request.getAgreementDateTo()).thenReturn(createDate("02.01.2024"));
-        List<ValidationError> errors = requestValidator.validate(request);
-        assertFalse(errors.isEmpty());
-        assertEquals(errors.size(), 1);
-        assertEquals(errors.get(0).getField(), "personLastName");
-        assertEquals(errors.get(0).getMessage(), "Must not be empty!");
-    }
-
-    @Test
-    public void shouldReturnErrorWhenAgreementDateFromIsNull() {
-        CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getPersonFirstName()).thenReturn("firstName");
-        when(request.getPersonLastName()).thenReturn("lastName");
-        when(request.getAgreementDateFrom()).thenReturn(null);
-        when(request.getAgreementDateTo()).thenReturn(createDate("02.01.2024"));
-        List<ValidationError> errors = requestValidator.validate(request);
-        assertFalse(errors.isEmpty());
-        assertEquals(errors.size(), 1);
-        assertEquals(errors.get(0).getField(), "agreementDateFrom");
-        assertEquals(errors.get(0).getMessage(), "Must not be empty!");
-    }
-
-    @Test
-    public void shouldReturnErrorWhenAgreementDateToIsNull() {
-        CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getPersonFirstName()).thenReturn("firstName");
-        when(request.getPersonLastName()).thenReturn("lastName");
-        when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2024"));
-        when(request.getAgreementDateTo()).thenReturn(null);
-        List<ValidationError> errors = requestValidator.validate(request);
-        assertFalse(errors.isEmpty());
-        assertEquals(errors.size(), 1);
-        assertEquals(errors.get(0).getField(), "agreementDateTo");
-        assertEquals(errors.get(0).getMessage(), "Must not be empty!");
-    }
-
-    @Test
-    public void shouldReturnErrorWhenDateFromIsEqualsDateTo() {
-        CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getPersonFirstName()).thenReturn("firstName");
-        when(request.getPersonLastName()).thenReturn("lastName");
-        when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2024"));
-        when(request.getAgreementDateTo()).thenReturn(createDate("01.01.2024"));
-        List<ValidationError> errors = requestValidator.validate(request);
-        assertFalse(errors.isEmpty());
-        assertEquals(errors.size(), 1);
-        assertEquals(errors.get(0).getField(), "agreementDateFrom");
-        assertEquals(errors.get(0).getMessage(), "Must be less then agreementDateTo!");
-    }
-
-    @Test
-    public void shouldReturnErrorWhenDateFromIsAfterDateTo() {
-        CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getPersonFirstName()).thenReturn("firstName");
-        when(request.getPersonLastName()).thenReturn("lastName");
-        when(request.getAgreementDateFrom()).thenReturn(createDate("05.01.2024"));
-        when((request.getAgreementDateTo())).thenReturn(createDate("01.01.2024"));
-        List<ValidationError> errors = requestValidator.validate(request);
-        assertFalse(errors.isEmpty());
-        assertEquals(errors.get(0).getField(), "agreementDateFrom");
-        assertEquals(errors.get(0).getMessage(), "Must be less then agreementDateTo!");
-    }
-
-    @Test
-    public void shouldNotReturnErrorWhenPersonFirstNameLastNameAgreementDateFromArePresent() {
-        CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getPersonFirstName()).thenReturn("firstName");
-        when(request.getPersonLastName()).thenReturn("lastName");
-        when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2024"));
-        when(request.getAgreementDateTo()).thenReturn(createDate("02.01.2024"));
+        CarRentRequestValidation validation1 = mock(CarRentRequestValidation.class);
+        when(validation1.execute(request)).thenReturn(Optional.empty());
+        CarRentRequestValidation validation2 = mock(CarRentRequestValidation.class);
+        when(validation2.execute(request)).thenReturn(Optional.empty());
+        List<CarRentRequestValidation> carRentValidations = List.of(
+                validation1, validation2
+        );
+        ReflectionTestUtils.setField(requestValidator, "carRentValidations", carRentValidations);
         List<ValidationError> errors = requestValidator.validate(request);
         assertTrue(errors.isEmpty());
     }
 
-    private Date createDate(String dateStr) {
-        try {
-            return new SimpleDateFormat("dd.MM.yyyy").parse(dateStr);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
+    @Test
+    public void shouldReturnErrors() {
+        CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
+        CarRentRequestValidation validation1 = mock(CarRentRequestValidation.class);
+        when(validation1.execute(request)).thenReturn(Optional.of(new ValidationError()));
+        CarRentRequestValidation validation2 = mock(CarRentRequestValidation.class);
+        when(validation2.execute(request)).thenReturn(Optional.of(new ValidationError()));
+        List<CarRentRequestValidation> carRentValidations = List.of(
+                validation1, validation2
+        );
+        ReflectionTestUtils.setField(requestValidator, "carRentValidations", carRentValidations);
+        List<ValidationError> errors = requestValidator.validate(request);
+        assertFalse(errors.isEmpty());
+        assertEquals(errors.size(), 2);
     }
+
 }
