@@ -22,10 +22,8 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class CarRentPriceCalculationServiceImplTest {
 
-    @Mock
-    CarRentPriceCalculationRequestValidator requestValidator;
-    @Mock
-    DateTimeService dateTimeService;
+    @Mock private CarRentPriceCalculationRequestValidator requestValidator;
+    @Mock private CarRentPriceUnderwriting priceUnderwriting;
 
     @InjectMocks
     private CarRentPriceCalculationServiceImpl service;
@@ -52,7 +50,7 @@ class CarRentPriceCalculationServiceImplTest {
     }
 
     @Test
-    public void shouldNotInvokeDateTimeUtilWhenValidationErrors() {
+    public void shouldNotInvokeCarRentPriceUnderwritingWhenValidationErrors() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         List<ValidationError> errors = buildValidationErrorList();
         when(requestValidator.validate(request)).thenReturn(errors);
@@ -60,7 +58,7 @@ class CarRentPriceCalculationServiceImplTest {
         assertEquals(response.getErrors().size(), 1);
         assertEquals(response.getErrors().get(0).getField(), "field");
         assertEquals(response.getErrors().get(0).getMessage(), "errorMessage");
-        verifyNoInteractions(dateTimeService);
+        verifyNoInteractions(priceUnderwriting);
         ;
     }
 
@@ -112,7 +110,7 @@ class CarRentPriceCalculationServiceImplTest {
         when(requestValidator.validate(request)).thenReturn(List.of());
         when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2024"));
         when(request.getAgreementDateTo()).thenReturn(createDate("10.01.2024"));
-        when(dateTimeService.getDaysBetween(request.getAgreementDateFrom(), request.getAgreementDateTo())).thenReturn(9L);
+        when(priceUnderwriting.calculatePrice(request)).thenReturn(new BigDecimal(9L));
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertFalse(response.hasErrors());
         assertEquals(response.getAgreementPrice(), new BigDecimal(9));

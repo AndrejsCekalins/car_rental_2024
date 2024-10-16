@@ -15,13 +15,13 @@ public class CarRentPriceCalculationServiceImpl implements CarRentPriceCalculati
     @Autowired
     private CarRentPriceCalculationRequestValidator requestValidator;
     @Autowired
-    private DateTimeService dateTimeService;
+    private CarRentPriceUnderwriting priceUnderwriting;
 
     @Override
     public CarRentPriceCalculationResponse calculatePrice(CarRentPriceCalculationRequest request) {
         List<ValidationError> errors = requestValidator.validate(request);
         return errors.isEmpty()
-                ? buildResponse(request)
+                ? buildResponse(request, priceUnderwriting.calculatePrice(request))
                 : buildResponse(errors);
     }
 
@@ -30,16 +30,13 @@ public class CarRentPriceCalculationServiceImpl implements CarRentPriceCalculati
         return new CarRentPriceCalculationResponse(errors);
     }
 
-    private CarRentPriceCalculationResponse buildResponse(CarRentPriceCalculationRequest request) {
+    private CarRentPriceCalculationResponse buildResponse(CarRentPriceCalculationRequest request, BigDecimal price) {
         CarRentPriceCalculationResponse response = new CarRentPriceCalculationResponse();
         response.setPersonFirstName(request.getPersonFirstName());
         response.setPersonLastName(request.getPersonLastName());
         response.setAgreementDateFrom(request.getAgreementDateFrom());
         response.setGetAgreementDateTo(request.getAgreementDateTo());
-
-        var daysBetween = dateTimeService.getDaysBetween(request.getAgreementDateFrom(), request.getAgreementDateTo());
-        response.setAgreementPrice(new BigDecimal(daysBetween));
-
+        response.setAgreementPrice(price);
         return response;
     }
 }
