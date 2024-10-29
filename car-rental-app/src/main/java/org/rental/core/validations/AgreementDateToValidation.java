@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-public class AgreementDateToValidation implements CarRentRequestValidation {
+class AgreementDateToValidation implements CarRentRequestValidation {
 
     @Override
     public Optional<ValidationError> execute(CarRentPriceCalculationRequest request) {

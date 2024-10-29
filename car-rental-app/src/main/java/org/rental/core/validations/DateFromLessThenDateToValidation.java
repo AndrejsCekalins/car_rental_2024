@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.Optional;
 @Component
-public class DateFromLessThenDateToValidation implements CarRentRequestValidation {
+class DateFromLessThenDateToValidation implements CarRentRequestValidation {
 
     @Override
     public Optional<ValidationError> execute(CarRentPriceCalculationRequest request) {

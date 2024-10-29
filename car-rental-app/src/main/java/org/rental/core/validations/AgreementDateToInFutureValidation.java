@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.Optional;
 
 @Component
-public class AgreementDateToInFutureValidation implements CarRentRequestValidation {
+class AgreementDateToInFutureValidation implements CarRentRequestValidation {
 
     @Autowired
     private DateTimeService dateTimeService;

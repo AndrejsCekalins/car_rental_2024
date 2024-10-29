@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-public class PersonLastNameValidation implements CarRentRequestValidation {
+class PersonLastNameValidation implements CarRentRequestValidation {
 
     @Override
     public Optional<ValidationError> execute(CarRentPriceCalculationRequest request) {
