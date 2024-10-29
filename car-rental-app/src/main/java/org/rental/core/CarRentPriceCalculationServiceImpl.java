@@ -1,5 +1,6 @@
 package org.rental.core;
 
+import org.rental.core.validations.CarRentPriceCalculationRequestValidator;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.rental.dto.CarRentPriceCalculationResponse;
 import org.rental.dto.ValidationError;

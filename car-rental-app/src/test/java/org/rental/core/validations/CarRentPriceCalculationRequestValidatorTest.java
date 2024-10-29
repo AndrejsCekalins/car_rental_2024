@@ -1,11 +1,10 @@
-package org.rental.core;
+package org.rental.core.validations;
 
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.rental.core.validations.CarRentRequestValidation;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.rental.dto.ValidationError;
 import org.springframework.test.util.ReflectionTestUtils;
@@ -21,7 +20,7 @@ import static org.mockito.Mockito.when;
 class CarRentPriceCalculationRequestValidatorTest {
 
    @InjectMocks
-   private CarRentPriceCalculationRequestValidator requestValidator;
+   private CarRentPriceCalculationRequestValidatorImpl requestValidator;
 
     @Test
     public void shouldNotReturnErrors() {
