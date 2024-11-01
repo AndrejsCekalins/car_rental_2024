@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CarRentPriceCalculationController {
 
     @Autowired
+    private CarRentPriceCalculationRequestLogger requestLogger;
+    @Autowired
     private CarRentPriceCalculationService calculatePriceService;
 
     @PostMapping(
@@ -21,6 +23,7 @@ public class CarRentPriceCalculationController {
             consumes = "application/json",
             produces = "application/json")
     public CarRentPriceCalculationResponse calculatePrice(@RequestBody CarRentPriceCalculationRequest request) {
+        requestLogger.log(request);
         return calculatePriceService.calculatePrice(request);
     }
 }
