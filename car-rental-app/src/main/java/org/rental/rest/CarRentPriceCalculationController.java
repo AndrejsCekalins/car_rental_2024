@@ -16,6 +16,8 @@ public class CarRentPriceCalculationController {
     @Autowired
     private CarRentPriceCalculationRequestLogger requestLogger;
     @Autowired
+    private CarRentPriceCalculationResponseLogger responseLogger;
+    @Autowired
     private CarRentPriceCalculationService calculatePriceService;
 
     @PostMapping(
@@ -24,6 +26,8 @@ public class CarRentPriceCalculationController {
             produces = "application/json")
     public CarRentPriceCalculationResponse calculatePrice(@RequestBody CarRentPriceCalculationRequest request) {
         requestLogger.log(request);
-        return calculatePriceService.calculatePrice(request);
+        CarRentPriceCalculationResponse response =calculatePriceService.calculatePrice(request);
+        responseLogger.log(response);
+        return response;
     }
 }
