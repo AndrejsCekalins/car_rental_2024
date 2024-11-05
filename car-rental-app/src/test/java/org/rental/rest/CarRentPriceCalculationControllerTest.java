@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static uk.org.webcompere.modelassert.json.JsonAssertions.assertJson;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
@@ -25,7 +26,6 @@ public class CarRentPriceCalculationControllerTest {
     private MockMvc mockMvc;
 
     @Autowired private JsonFileReader jsonFileReader;
-    private ObjectMapper mapper = new ObjectMapper();
 
     @Test
     public void successRequest() throws Exception {
@@ -114,7 +114,12 @@ public class CarRentPriceCalculationControllerTest {
 
         String jsonResponse = jsonFileReader.readJsonFromFile(jsonResponseFilePath);
 
-        assertEquals(mapper.readTree(responseBodyContent), mapper.readTree(jsonResponse));
+        assertJson(responseBodyContent)
+                .where()
+                .keysInAnyOrder()
+                .arrayInAnyOrder()
+                .isEqualTo(jsonResponse);
+        ;
     }
 
 }

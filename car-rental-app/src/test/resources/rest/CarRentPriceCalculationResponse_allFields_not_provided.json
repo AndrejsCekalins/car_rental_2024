@@ -14,6 +14,10 @@
   {
     "field":"personLastName",
     "message":"Must not be empty!"
+  },
+  {
+    "field":"selectedVehicle",
+    "message":"Must not be empty!"
   }
 ],
   "personFirstName": null,
