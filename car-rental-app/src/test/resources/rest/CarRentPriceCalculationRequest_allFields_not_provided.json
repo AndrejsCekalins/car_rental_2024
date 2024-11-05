@@ -2,5 +2,6 @@
   "personFirstName" : null,
   "personLastName" : null,
   "agreementDateFrom" : null,
-  "agreementDateTo" : null
+  "agreementDateTo" : null,
+  "selectedVehicle" : ["CAR_PREMIUM"]
 }
