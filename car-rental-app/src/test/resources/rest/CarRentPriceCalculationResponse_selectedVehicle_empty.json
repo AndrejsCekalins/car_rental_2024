@@ -1,8 +1,8 @@
 {
   "errors": [
     {
-      "field": "selectedVehicle",
-      "message": "Must not be empty!"
+      "errorCode":"ERROR_CODE_6",
+      "description":"Field selectedVehicle must not be empty!"
     }
   ],
   "personFirstName": null,

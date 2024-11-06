@@ -1,8 +1,13 @@
 package org.rental.core.validations;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.rental.core.ErrorCodeUnit;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.rental.dto.ValidationError;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,19 +18,25 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(SpringExtension.class)
 class DateFromLessThenDateToValidationTest {
 
-    private DateFromLessThenDateToValidation validation= new DateFromLessThenDateToValidation();
+    @Mock
+    private ErrorCodeUnit errorCodeUnit;
+
+    @InjectMocks
+    private DateFromLessThenDateToValidation validation;
 
     @Test
     public void shouldReturnErrorWhenDateFromIsAfterDateTo() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getAgreementDateFrom()).thenReturn(createDate("05.01.2026"));
         when((request.getAgreementDateTo())).thenReturn(createDate("01.01.2026"));
+        when(errorCodeUnit.getErrorDescription("ERROR_CODE_5")).thenReturn("Field agreementDateFrom must be less than agreementDateTo!");
         Optional<ValidationError> error = validation.execute(request);
         assertFalse(error.isEmpty());
-        assertEquals(error.get().getField(), "agreementDateFrom");
-        assertEquals(error.get().getMessage(), "Must be less then agreementDateTo!");
+        assertEquals(error.get().getErrorCode(), "ERROR_CODE_5");
+        assertEquals(error.get().getDescription(), "Field agreementDateFrom must be less than agreementDateTo!");
     }
 
     @Test
@@ -33,10 +44,11 @@ class DateFromLessThenDateToValidationTest {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2026"));
         when((request.getAgreementDateTo())).thenReturn(createDate("01.01.2026"));
+        when(errorCodeUnit.getErrorDescription("ERROR_CODE_5")).thenReturn("Field agreementDateFrom must be less than agreementDateTo!");
         Optional<ValidationError> error = validation.execute(request);
         assertFalse(error.isEmpty());
-        assertEquals(error.get().getField(), "agreementDateFrom");
-        assertEquals(error.get().getMessage(), "Must be less then agreementDateTo!");
+        assertEquals(error.get().getErrorCode(), "ERROR_CODE_5");
+        assertEquals(error.get().getDescription(), "Field agreementDateFrom must be less than agreementDateTo!");
     }
 
     @Test

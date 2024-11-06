@@ -1,6 +1,5 @@
 package org.rental.rest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -36,18 +35,35 @@ public class CarRentPriceCalculationControllerTest {
     }
 
     @Test
-    public void firstNameNotProvided() throws Exception {
+    public void firstNameIsNull() throws Exception {
         executeAndCompare(
-                "rest/CarRentPriceCalculationRequest_firstName_not_provided.json",
-                "rest/CarRentPriceCalculationResponse_firstName_not_provided.json"
+                "rest/CarRentPriceCalculationRequest_firstName_is_null.json",
+                "rest/CarRentPriceCalculationResponse_firstName_is_null.json"
         );
     }
 
     @Test
-    public void lastNameNotProvided() throws Exception {
+    public void firstNameIsEmpty() throws Exception {
         executeAndCompare(
-                "rest/CarRentPriceCalculationRequest_lastName_not_provided.json",
-                "rest/CarRentPriceCalculationResponse_lastName_not_provided.json"
+                "rest/CarRentPriceCalculationRequest_firstName_is_empty.json",
+                "rest/CarRentPriceCalculationResponse_firstName_is_empty.json"
+        );
+    }
+
+
+    @Test
+    public void lastNameIsNull() throws Exception {
+        executeAndCompare(
+                "rest/CarRentPriceCalculationRequest_lastName_is_null.json",
+                "rest/CarRentPriceCalculationResponse_lastName_is_null.json"
+        );
+    }
+
+    @Test
+    public void lastNameIsEmpty() throws Exception {
+        executeAndCompare(
+                "rest/CarRentPriceCalculationRequest_lastName_is_empty.json",
+                "rest/CarRentPriceCalculationResponse_lastName_is_empty.json"
         );
     }
 
@@ -72,6 +88,22 @@ public class CarRentPriceCalculationControllerTest {
         executeAndCompare(
                 "rest/CarRentPriceCalculationRequest_dateTo_lessThen_dateFrom.json",
                 "rest/CarRentPriceCalculationResponse_dateTo_lessThen_dateFrom.json"
+        );
+    }
+
+    @Test
+    public void agreementDateFromInThePast() throws Exception {
+        executeAndCompare(
+                "rest/CarRentPriceCalculationRequest_agreementDateFrom_in_the_past.json",
+                "rest/CarRentPriceCalculationResponse_agreementDateFrom_in_the_past.json"
+        );
+    }
+
+    @Test
+    public void agreementDateToInThePast() throws Exception {
+        executeAndCompare(
+                "rest/CarRentPriceCalculationRequest_agreementDateTo_in_the_past.json",
+                "rest/CarRentPriceCalculationResponse_agreementDateTo_in_the_past.json"
         );
     }
 

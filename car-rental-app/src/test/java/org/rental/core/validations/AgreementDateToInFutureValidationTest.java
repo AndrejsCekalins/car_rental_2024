@@ -6,6 +6,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.rental.core.DateTimeService;
+import org.rental.core.ErrorCodeUnit;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.rental.dto.ValidationError;
 
@@ -23,6 +24,8 @@ class AgreementDateToInFutureValidationTest {
 
     @Mock private DateTimeService dateTimeService;
 
+    @Mock private ErrorCodeUnit errorCodeUnit;
+
     @InjectMocks private AgreementDateToInFutureValidation validation;
 
     @Test
@@ -30,10 +33,11 @@ class AgreementDateToInFutureValidationTest {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getAgreementDateTo()).thenReturn(createDate("10.01.2020"));
         when(dateTimeService.getCurrentDateTime()).thenReturn(createDate("01.01.2025"));
+        when(errorCodeUnit.getErrorDescription("ERROR_CODE_3")).thenReturn("Field agreementDateTo must be in the future!");
         Optional<ValidationError> error = validation.execute(request);
         assertFalse(error.isEmpty());
-        assertEquals(error.get().getField(), "agreementDateTo");
-        assertEquals(error.get().getMessage(), "Must be in the future!");
+        assertEquals(error.get().getErrorCode(), "ERROR_CODE_3");
+        assertEquals(error.get().getDescription(), "Field agreementDateTo must be in the future!");
     }
 
     @Test

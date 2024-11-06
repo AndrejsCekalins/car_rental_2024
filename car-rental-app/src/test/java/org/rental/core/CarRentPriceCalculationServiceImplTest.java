@@ -44,8 +44,8 @@ class CarRentPriceCalculationServiceImplTest {
         when(requestValidator.validate(request)).thenReturn(errors);
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertEquals(response.getErrors().size(), 1);
-        assertEquals(response.getErrors().get(0).getField(), "field");
-        assertEquals(response.getErrors().get(0).getMessage(), "errorMessage");
+        assertEquals(response.getErrors().get(0).getErrorCode(), "ERROR_CODE");
+        assertEquals(response.getErrors().get(0).getDescription(), "errorDescription");
 
     }
 
@@ -56,8 +56,8 @@ class CarRentPriceCalculationServiceImplTest {
         when(requestValidator.validate(request)).thenReturn(errors);
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertEquals(response.getErrors().size(), 1);
-        assertEquals(response.getErrors().get(0).getField(), "field");
-        assertEquals(response.getErrors().get(0).getMessage(), "errorMessage");
+        assertEquals(response.getErrors().get(0).getErrorCode(), "ERROR_CODE");
+        assertEquals(response.getErrors().get(0).getDescription(), "errorDescription");
         verifyNoInteractions(priceUnderwriting);
         ;
     }
@@ -118,7 +118,7 @@ class CarRentPriceCalculationServiceImplTest {
 
     private List<ValidationError> buildValidationErrorList() {
         return List.of(
-                new ValidationError("field", "errorMessage"));
+                new ValidationError("ERROR_CODE", "errorDescription"));
     }
 
     private Date createDate(String dateStr) {
