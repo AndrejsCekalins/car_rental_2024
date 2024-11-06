@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 class EmptySelectedVehicleValidationTest {
 
     @Mock
-    private ErrorCodeUnit errorCodeUnit;
+    private ValidationErrorFactory errorFactory;
 
     @InjectMocks
     private EmptySelectedVehicleValidation validation;
@@ -29,7 +29,7 @@ class EmptySelectedVehicleValidationTest {
     public void shouldReturnErrorWhenSelectedVehicleIsNull() {
     CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
     when(request.getSelectedVehicle()).thenReturn(null);
-    when(errorCodeUnit.getErrorDescription("ERROR_CODE_6")).thenReturn("Field selectedVehicle must not be empty!");
+    when(errorFactory.buildError("ERROR_CODE_6")).thenReturn( new ValidationError("ERROR_CODE_6", "Field selectedVehicle must not be empty!"));
     Optional<ValidationError>errorOpt = validation.execute(request);
     assertFalse(errorOpt.isEmpty());
     assertEquals(errorOpt.get().getErrorCode(), "ERROR_CODE_6");
@@ -40,7 +40,7 @@ class EmptySelectedVehicleValidationTest {
     public void shouldReturnErrorWhenSelectedVehicleIsEmpty() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getSelectedVehicle()).thenReturn(List.of());
-        when(errorCodeUnit.getErrorDescription("ERROR_CODE_6")).thenReturn("Field selectedVehicle must not be empty!");
+        when(errorFactory.buildError("ERROR_CODE_6")).thenReturn( new ValidationError("ERROR_CODE_6", "Field selectedVehicle must not be empty!"));
         Optional<ValidationError>errorOpt = validation.execute(request);
         assertFalse(errorOpt.isEmpty());
         assertEquals(errorOpt.get().getErrorCode(), "ERROR_CODE_6");

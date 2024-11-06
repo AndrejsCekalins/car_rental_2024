@@ -22,7 +22,7 @@ import static org.mockito.Mockito.when;
 class DateFromLessThenDateToValidationTest {
 
     @Mock
-    private ErrorCodeUnit errorCodeUnit;
+    private ValidationErrorFactory errorFactory;
 
     @InjectMocks
     private DateFromLessThenDateToValidation validation;
@@ -32,7 +32,7 @@ class DateFromLessThenDateToValidationTest {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getAgreementDateFrom()).thenReturn(createDate("05.01.2026"));
         when((request.getAgreementDateTo())).thenReturn(createDate("01.01.2026"));
-        when(errorCodeUnit.getErrorDescription("ERROR_CODE_5")).thenReturn("Field agreementDateFrom must be less than agreementDateTo!");
+        when(errorFactory.buildError("ERROR_CODE_5")).thenReturn( new ValidationError("ERROR_CODE_5", "Field agreementDateFrom must be less than agreementDateTo!"));
         Optional<ValidationError> error = validation.execute(request);
         assertFalse(error.isEmpty());
         assertEquals(error.get().getErrorCode(), "ERROR_CODE_5");
@@ -44,7 +44,7 @@ class DateFromLessThenDateToValidationTest {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2026"));
         when((request.getAgreementDateTo())).thenReturn(createDate("01.01.2026"));
-        when(errorCodeUnit.getErrorDescription("ERROR_CODE_5")).thenReturn("Field agreementDateFrom must be less than agreementDateTo!");
+        when(errorFactory.buildError("ERROR_CODE_5")).thenReturn( new ValidationError("ERROR_CODE_5", "Field agreementDateFrom must be less than agreementDateTo!"));
         Optional<ValidationError> error = validation.execute(request);
         assertFalse(error.isEmpty());
         assertEquals(error.get().getErrorCode(), "ERROR_CODE_5");

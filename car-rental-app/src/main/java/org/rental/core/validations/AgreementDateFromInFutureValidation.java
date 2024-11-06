@@ -1,7 +1,6 @@
 package org.rental.core.validations;
 
 import org.rental.core.DateTimeService;
-import org.rental.core.ErrorCodeUnit;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.rental.dto.ValidationError;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,20 +14,16 @@ public class AgreementDateFromInFutureValidation implements CarRentRequestValida
 
     @Autowired
     private DateTimeService dateTimeService;
+
     @Autowired
-    private ErrorCodeUnit errorCodeUnit;
+    private ValidationErrorFactory errorFactory;
 
     @Override
     public Optional<ValidationError> execute(CarRentPriceCalculationRequest request) {
         Date dateFrom = request.getAgreementDateFrom();
         Date currentDateTime =dateTimeService.getCurrentDateTime();
         return (dateFrom != null && dateFrom.before(currentDateTime))
-                ? Optional.of(buildError("ERROR_CODE_1"))
+                ? Optional.of(errorFactory.buildError("ERROR_CODE_1"))
                 : Optional.empty();
-    }
-
-    private ValidationError buildError(String errorCode) {
-String errorDescription = errorCodeUnit.getErrorDescription(errorCode);
-        return new ValidationError(errorCode, errorDescription);
     }
 }

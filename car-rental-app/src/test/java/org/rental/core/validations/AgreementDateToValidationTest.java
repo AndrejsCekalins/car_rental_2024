@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.rental.core.ErrorCodeUnit;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.rental.dto.ValidationError;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -22,7 +21,7 @@ import static org.mockito.Mockito.when;
 class AgreementDateToValidationTest {
 
     @Mock
-    private ErrorCodeUnit errorCodeUnit;
+    private ValidationErrorFactory errorFactory;
 
     @InjectMocks
     private AgreementDateToValidation validation;
@@ -31,7 +30,7 @@ class AgreementDateToValidationTest {
     public void shouldReturnErrorWhenAgreementDateToIsNull() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);;
         when(request.getAgreementDateTo()).thenReturn(null);
-        when(errorCodeUnit.getErrorDescription("ERROR_CODE_4")).thenReturn("Field agreementDateTo must not be empty!");
+        when(errorFactory.buildError("ERROR_CODE_4")).thenReturn(new ValidationError("ERROR_CODE_4", "Field agreementDateTo must not be empty!"));
         Optional<ValidationError> error = validation.execute(request);
         assertFalse(error.isEmpty());
         assertEquals(error.get().getErrorCode(), "ERROR_CODE_4");

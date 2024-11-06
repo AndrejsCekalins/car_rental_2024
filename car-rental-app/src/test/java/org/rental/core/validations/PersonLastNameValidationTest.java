@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.rental.core.ErrorCodeUnit;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.rental.dto.ValidationError;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -19,7 +18,7 @@ import static org.mockito.Mockito.when;
 class PersonLastNameValidationTest {
 
     @Mock
-    private ErrorCodeUnit errorCodeUnit;
+    private ValidationErrorFactory errorFactory;
 
     @InjectMocks
     private PersonLastNameValidation validation;
@@ -28,7 +27,7 @@ class PersonLastNameValidationTest {
     public void shouldReturnErrorWhenPersonLastNameIsEmpty() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getPersonLastName()).thenReturn("");
-        when(errorCodeUnit.getErrorDescription("ERROR_CODE_8")).thenReturn("Field personLastName must not be empty!");
+        when(errorFactory.buildError("ERROR_CODE_8")).thenReturn(new ValidationError("ERROR_CODE_8", "Field personLastName must not be empty!"));
         Optional<ValidationError> error = validation.execute(request);
         assertFalse(error.isEmpty());
         assertEquals(error.get().getErrorCode(), "ERROR_CODE_8");
@@ -39,7 +38,7 @@ class PersonLastNameValidationTest {
     public void shouldReturnErrorWhenPersonLastNameIsNull() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getPersonLastName()).thenReturn(null);
-        when(errorCodeUnit.getErrorDescription("ERROR_CODE_8")).thenReturn("Field personLastName must not be empty!");
+        when(errorFactory.buildError("ERROR_CODE_8")).thenReturn(new ValidationError("ERROR_CODE_8", "Field personLastName must not be empty!"));
         Optional<ValidationError> error = validation.execute(request);
         assertFalse(error.isEmpty());
         assertEquals(error.get().getErrorCode(), "ERROR_CODE_8");

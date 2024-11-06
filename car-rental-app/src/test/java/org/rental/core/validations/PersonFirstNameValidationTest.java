@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 class PersonFirstNameValidationTest {
 
     @Mock
-    private ErrorCodeUnit errorCodeUnit;
+    private ValidationErrorFactory errorFactory;
 
     @InjectMocks
     private PersonFirstNameValidation validation;
@@ -28,7 +28,7 @@ class PersonFirstNameValidationTest {
     public void shouldReturnErrorWhenPersonFirstNameIsNull() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getPersonFirstName()).thenReturn(null);
-        when(errorCodeUnit.getErrorDescription("ERROR_CODE_7")).thenReturn("Field personFirstName must not be empty!");
+        when(errorFactory.buildError("ERROR_CODE_7")).thenReturn(new ValidationError("ERROR_CODE_7", "Field personFirstName must not be empty!"));
         Optional<ValidationError> error = validation.execute(request);
         assertFalse(error.isEmpty());
         assertEquals(error.get().getErrorCode(), "ERROR_CODE_7");
@@ -39,7 +39,7 @@ class PersonFirstNameValidationTest {
     public void shouldReturnErrorWhenPersonFirstNameIsEmpty() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getPersonFirstName()).thenReturn("");
-        when(errorCodeUnit.getErrorDescription("ERROR_CODE_7")).thenReturn("Field personFirstName must not be empty!");
+        when(errorFactory.buildError("ERROR_CODE_7")).thenReturn(new ValidationError("ERROR_CODE_7", "Field personFirstName must not be empty!"));
         Optional<ValidationError> error = validation.execute(request);
         assertFalse(error.isEmpty());
         assertEquals(error.get().getErrorCode(), "ERROR_CODE_7");
