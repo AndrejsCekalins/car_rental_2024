@@ -5,7 +5,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.rental.core.DateTimeService;
+import org.rental.core.util.DateTimeUtil;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.rental.dto.ValidationError;
 
@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class AgreementDateToInFutureValidationTest {
 
-    @Mock private DateTimeService dateTimeService;
+    @Mock private DateTimeUtil dateTimeService;
 
     @Mock private ValidationErrorFactory errorFactory;
 

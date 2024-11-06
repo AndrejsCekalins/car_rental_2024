@@ -1,4 +1,4 @@
-package org.rental.core;
+package org.rental.core.util;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;

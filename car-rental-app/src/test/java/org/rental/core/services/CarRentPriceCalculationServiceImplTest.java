@@ -1,10 +1,11 @@
-package org.rental.core;
+package org.rental.core.services;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.rental.core.underwriting.CarRentPriceUnderwriting;
 import org.rental.core.validations.CarRentPriceCalculationRequestValidator;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.rental.dto.CarRentPriceCalculationResponse;

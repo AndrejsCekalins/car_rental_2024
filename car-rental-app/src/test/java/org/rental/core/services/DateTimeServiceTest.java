@@ -1,6 +1,7 @@
-package org.rental.core;
+package org.rental.core.services;
 
 import org.junit.jupiter.api.Test;
+import org.rental.core.util.DateTimeUtil;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DateTimeServiceTest {
 
-private DateTimeService dateTimeService = new DateTimeService();
+private DateTimeUtil dateTimeService = new DateTimeUtil();
 
     @Test
     void shouldDaysBetweenBeZero() {

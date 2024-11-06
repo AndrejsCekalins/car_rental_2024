@@ -1,11 +1,10 @@
 package org.rental.rest;
 
 import com.google.common.base.Stopwatch;
-import org.rental.core.CarRentPriceCalculationService;
+import org.rental.core.services.CarRentPriceCalculationService;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.rental.dto.CarRentPriceCalculationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StopWatch;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,6 @@
 package org.rental.core.validations;
 
-import org.rental.core.DateTimeService;
+import org.rental.core.util.DateTimeUtil;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.rental.dto.ValidationError;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import java.util.Optional;
 class AgreementDateToInFutureValidation implements CarRentRequestValidation {
 
     @Autowired
-    private DateTimeService dateTimeService;
+    private DateTimeUtil dateTimeService;
 
     @Autowired
     private ValidationErrorFactory errorFactory;

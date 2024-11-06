@@ -1,6 +1,6 @@
 package org.rental.core.validations;
 
-import org.rental.core.ErrorCodeUnit;
+import org.rental.core.util.ErrorCodeUnit;
 import org.rental.dto.ValidationError;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

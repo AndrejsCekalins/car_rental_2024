@@ -1,10 +1,11 @@
-package org.rental.core;
+package org.rental.core.underwriting;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.rental.core.util.DateTimeUtil;
 import org.rental.dto.CarRentPriceCalculationRequest;
 
 import java.math.BigDecimal;
@@ -20,10 +21,10 @@ import static org.mockito.Mockito.when;
 class CarRentPriceUnderwritingTest {
 
     @Mock
-    private DateTimeService dateTimeService;
+    private DateTimeUtil dateTimeService;
 
     @InjectMocks
-    private CarRentPriceUnderwriting priceUnderwriting;
+    private CarRentPriceUnderwritingImpl priceUnderwriting;
 
     @Test
     public void shouldReturnResponseWithCorrectAgreementPrice() {
