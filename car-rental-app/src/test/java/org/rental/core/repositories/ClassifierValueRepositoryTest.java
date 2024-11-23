@@ -22,48 +22,40 @@ class ClassifierValueRepositoryTest {
 
     @Test
     public void shouldFind_VehicleType_CAR_OPTIMUM(){
-        Optional<ClassifierValue>valueOpt = classifierValueRepository.findByClassifierTitleAndIc("VEHICLE_TYPE","CAR_OPTIMUM");
-        assertTrue(valueOpt.isPresent());
-        assertEquals(valueOpt.get().getClassifier().getTitle(), "VEHICLE_TYPE");
-        assertEquals(valueOpt.get().getIc(), "CAR_OPTIMUM");
+        searchClassifierValueAndCheck("VEHICLE_TYPE","CAR_OPTIMUM" );
     }
 
     @Test
-    public void shouldFind_VehicleType_CAR_PREMIUM(){
-        Optional<ClassifierValue>valueOpt = classifierValueRepository.findByClassifierTitleAndIc("VEHICLE_TYPE","CAR_PREMIUM");
-        assertTrue(valueOpt.isPresent());
-        assertEquals(valueOpt.get().getClassifier().getTitle(), "VEHICLE_TYPE");
-        assertEquals(valueOpt.get().getIc(), "CAR_PREMIUM");
+    public void shouldFind_VehicleType_CAR_PREMIUM() {
+        searchClassifierValueAndCheck("VEHICLE_TYPE", "CAR_PREMIUM");
     }
 
     @Test
     public void shouldFind_VehicleType_CAR_VAN() {
-        Optional<ClassifierValue> valueOpt = classifierValueRepository.findByClassifierTitleAndIc("VEHICLE_TYPE", "CAR_VAN");
-        assertTrue(valueOpt.isPresent());
-        assertEquals(valueOpt.get().getClassifier().getTitle(), "VEHICLE_TYPE");
-        assertEquals(valueOpt.get().getIc(), "CAR_VAN");
+        searchClassifierValueAndCheck("VEHICLE_TYPE","CAR_VAN" );
     }
 
     @Test
     public void shouldFind_VehicleType_CAR_LUX() {
-        Optional<ClassifierValue> valueOpt = classifierValueRepository.findByClassifierTitleAndIc("VEHICLE_TYPE", "CAR_LUX");
-        assertTrue(valueOpt.isPresent());
-        assertEquals(valueOpt.get().getClassifier().getTitle(), "VEHICLE_TYPE");
-        assertEquals(valueOpt.get().getIc(), "CAR_LUX");
+        searchClassifierValueAndCheck("VEHICLE_TYPE","CAR_LUX" );
     }
 
     @Test
     public void shouldFind_VehicleType_CAR_SPORT() {
-        Optional<ClassifierValue> valueOpt = classifierValueRepository.findByClassifierTitleAndIc("VEHICLE_TYPE", "CAR_SPORT");
-        assertTrue(valueOpt.isPresent());
-        assertEquals(valueOpt.get().getClassifier().getTitle(), "VEHICLE_TYPE");
-        assertEquals(valueOpt.get().getIc(), "CAR_SPORT");
+        searchClassifierValueAndCheck("VEHICLE_TYPE","CAR_SPORT" );
     }
 
     @Test
     public void shouldFind_VehicleType_FAKE() {
         Optional<ClassifierValue> valueOpt = classifierValueRepository.findByClassifierTitleAndIc("VEHICLE_TYPE", "FAKE");
         assertTrue(valueOpt.isEmpty());
+    }
+
+    private void searchClassifierValueAndCheck(String classifierTitle, String ic){
+        Optional<ClassifierValue> valueOpt =classifierValueRepository.findByClassifierTitleAndIc(classifierTitle,ic);
+        assertTrue(valueOpt.isPresent());
+        assertEquals(valueOpt.get().getClassifier().getTitle(), classifierTitle);
+        assertEquals(valueOpt.get().getIc(), ic);
     }
 
 }
