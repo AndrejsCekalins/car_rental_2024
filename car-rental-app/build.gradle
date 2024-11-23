@@ -11,10 +11,17 @@ repositories {
 }
 
 dependencies {
+    implementation('mysql:mysql-connector-java:8.0.33')
+    implementation('org.hibernate:hibernate-core:6.5.0.Final')
+    implementation('com.h2database:h2:2.2.224')
+    implementation('org.liquibase:liquibase-core:4.29.2')
+
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa:3.3.0')
+
     implementation('org.springframework.boot:spring-boot-starter-web:3.3.0')
 
     implementation('com.fasterxml.jackson.core:jackson-core:2.18.0')
-    implementation('com.google.guava:guava:31.0.1-jre')
+    implementation('com.google.guava:guava:33.3.1-jre')
 
     compileOnly('org.projectlombok:lombok:1.18.34')
     annotationProcessor('org.projectlombok:lombok:1.18.34')
@@ -30,11 +37,15 @@ dependencies {
 
     testImplementation('uk.org.webcompere:model-assert:1.0.0')
 
+    testImplementation('org.hamcrest:hamcrest:2.2')
+
+    testImplementation('com.h2database:h2:2.2.224')
+
+    test {
+        useJUnitPlatform()
+    }
 }
 
-test {
-    useJUnitPlatform()
-}
 task prepareKotlinBuildScriptModel {
 
 }
