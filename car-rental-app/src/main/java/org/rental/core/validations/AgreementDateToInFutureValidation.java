@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.Optional;
 
 @Component
-class AgreementDateToInFutureValidation implements CarRentRequestValidation {
+class AgreementDateToInFutureValidation extends CarRentRequestValidationImpl {
 
     @Autowired
     private DateTimeUtil dateTimeService;
@@ -19,7 +19,7 @@ class AgreementDateToInFutureValidation implements CarRentRequestValidation {
     private ValidationErrorFactory errorFactory;
 
     @Override
-    public Optional<ValidationError> execute(CarRentPriceCalculationRequest request) {
+    public Optional<ValidationError> validate(CarRentPriceCalculationRequest request) {
         Date dateTo = request.getAgreementDateTo();
         Date currentDateTime = dateTimeService.getCurrentDateTime();
         return (dateTo != null && dateTo.before(currentDateTime))

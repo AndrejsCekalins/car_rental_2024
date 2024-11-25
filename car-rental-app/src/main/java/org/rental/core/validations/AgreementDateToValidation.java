@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-class AgreementDateToValidation implements CarRentRequestValidation {
+class AgreementDateToValidation extends CarRentRequestValidationImpl {
 
     @Autowired
     private ValidationErrorFactory errorFactory;
 
     @Override
-    public Optional<ValidationError> execute(CarRentPriceCalculationRequest request) {
+    public Optional<ValidationError> validate(CarRentPriceCalculationRequest request) {
         return (request.getAgreementDateTo() == null)
                 ? Optional.of(errorFactory.buildError("ERROR_CODE_4"))
                 : Optional.empty();

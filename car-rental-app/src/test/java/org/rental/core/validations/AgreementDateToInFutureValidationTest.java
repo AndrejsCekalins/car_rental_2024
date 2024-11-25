@@ -33,7 +33,7 @@ class AgreementDateToInFutureValidationTest {
         when(request.getAgreementDateTo()).thenReturn(createDate("10.01.2020"));
         when(dateTimeService.getCurrentDateTime()).thenReturn(createDate("01.01.2025"));
         when(errorFactory.buildError("ERROR_CODE_3")).thenReturn(new ValidationError("ERROR_CODE_3","Field agreementDateTo must be in the future!"));
-        Optional<ValidationError> error = validation.execute(request);
+        Optional<ValidationError> error = validation.validate(request);
         assertFalse(error.isEmpty());
         assertEquals(error.get().getErrorCode(), "ERROR_CODE_3");
         assertEquals(error.get().getDescription(), "Field agreementDateTo must be in the future!");
@@ -44,7 +44,7 @@ class AgreementDateToInFutureValidationTest {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getAgreementDateTo()).thenReturn(createDate("10.01.2026"));
         when(dateTimeService.getCurrentDateTime()).thenReturn(createDate("01.01.2025"));
-        Optional<ValidationError> error = validation.execute(request);
+        Optional<ValidationError> error = validation.validate(request);
         assertTrue(error.isEmpty());
     }
 

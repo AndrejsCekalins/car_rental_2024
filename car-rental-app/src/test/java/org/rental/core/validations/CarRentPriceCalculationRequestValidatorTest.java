@@ -26,9 +26,9 @@ class CarRentPriceCalculationRequestValidatorTest {
     public void shouldNotReturnErrors() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         CarRentRequestValidation validation1 = mock(CarRentRequestValidation.class);
-        when(validation1.execute(request)).thenReturn(Optional.empty());
+        when(validation1.validate(request)).thenReturn(Optional.empty());
         CarRentRequestValidation validation2 = mock(CarRentRequestValidation.class);
-        when(validation2.execute(request)).thenReturn(Optional.empty());
+        when(validation2.validate(request)).thenReturn(Optional.empty());
         List<CarRentRequestValidation> carRentValidations = List.of(
                 validation1, validation2
         );
@@ -41,9 +41,9 @@ class CarRentPriceCalculationRequestValidatorTest {
     public void shouldReturnErrors() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         CarRentRequestValidation validation1 = mock(CarRentRequestValidation.class);
-        when(validation1.execute(request)).thenReturn(Optional.of(new ValidationError()));
+        when(validation1.validate(request)).thenReturn(Optional.of(new ValidationError()));
         CarRentRequestValidation validation2 = mock(CarRentRequestValidation.class);
-        when(validation2.execute(request)).thenReturn(Optional.of(new ValidationError()));
+        when(validation2.validate(request)).thenReturn(Optional.of(new ValidationError()));
         List<CarRentRequestValidation> carRentValidations = List.of(
                 validation1, validation2
         );

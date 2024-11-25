@@ -32,7 +32,7 @@ class AgreementDateFromValidationTest {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getAgreementDateFrom()).thenReturn(null);
         when(errorFactory.buildError("ERROR_CODE_2")).thenReturn(new ValidationError("ERROR_CODE_2","Field agreementDateFrom must not be empty!"));
-        Optional<ValidationError> error = validation.execute(request);
+        Optional<ValidationError> error = validation.validate(request);
         assertFalse(error.isEmpty());
         assertEquals(error.get().getErrorCode(), "ERROR_CODE_2");
         assertEquals(error.get().getDescription(), "Field agreementDateFrom must not be empty!");
@@ -42,7 +42,7 @@ class AgreementDateFromValidationTest {
     public void shouldNotReturnErrorWhenAgreementDateFromIsPresent() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getAgreementDateFrom()).thenReturn(createDate("31.12.2026"));
-        Optional<ValidationError> error = validation.execute(request);
+        Optional<ValidationError> error = validation.validate(request);
         assertTrue(error.isEmpty());
     }
 

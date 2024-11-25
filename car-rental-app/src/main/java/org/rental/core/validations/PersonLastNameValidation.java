@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-class PersonLastNameValidation implements CarRentRequestValidation {
+class PersonLastNameValidation extends CarRentRequestValidationImpl {
 
     @Autowired
     private ValidationErrorFactory errorFactory;
 
     @Override
-    public Optional<ValidationError> execute(CarRentPriceCalculationRequest request) {
+    public Optional<ValidationError> validate(CarRentPriceCalculationRequest request) {
         return (request.getPersonLastName() == null || request.getPersonLastName().isEmpty())
                 ? Optional.of(errorFactory.buildError("ERROR_CODE_8"))
                 : Optional.empty();

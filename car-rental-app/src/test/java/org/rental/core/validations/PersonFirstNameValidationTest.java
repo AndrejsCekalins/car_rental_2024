@@ -28,7 +28,7 @@ class PersonFirstNameValidationTest {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getPersonFirstName()).thenReturn(null);
         when(errorFactory.buildError("ERROR_CODE_7")).thenReturn(new ValidationError("ERROR_CODE_7", "Field personFirstName must not be empty!"));
-        Optional<ValidationError> error = validation.execute(request);
+        Optional<ValidationError> error = validation.validate(request);
         assertFalse(error.isEmpty());
         assertEquals(error.get().getErrorCode(), "ERROR_CODE_7");
         assertEquals(error.get().getDescription(), "Field personFirstName must not be empty!");
@@ -39,7 +39,7 @@ class PersonFirstNameValidationTest {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getPersonFirstName()).thenReturn("");
         when(errorFactory.buildError("ERROR_CODE_7")).thenReturn(new ValidationError("ERROR_CODE_7", "Field personFirstName must not be empty!"));
-        Optional<ValidationError> error = validation.execute(request);
+        Optional<ValidationError> error = validation.validate(request);
         assertFalse(error.isEmpty());
         assertEquals(error.get().getErrorCode(), "ERROR_CODE_7");
         assertEquals(error.get().getDescription(), "Field personFirstName must not be empty!");
@@ -49,7 +49,7 @@ class PersonFirstNameValidationTest {
     public void shouldNotReturnErrorWhenPersonFirstNameIsPresent() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getPersonFirstName()).thenReturn("firstName");
-        Optional<ValidationError> error = validation.execute(request);
+        Optional<ValidationError> error = validation.validate(request);
         assertTrue(error.isEmpty());
     }
 

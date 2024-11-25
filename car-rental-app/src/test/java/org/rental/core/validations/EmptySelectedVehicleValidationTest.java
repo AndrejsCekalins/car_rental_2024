@@ -29,7 +29,7 @@ class EmptySelectedVehicleValidationTest {
     CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
     when(request.getSelectedVehicle()).thenReturn(null);
     when(errorFactory.buildError("ERROR_CODE_6")).thenReturn( new ValidationError("ERROR_CODE_6", "Field selectedVehicle must not be empty!"));
-    Optional<ValidationError>errorOpt = validation.execute(request);
+    Optional<ValidationError>errorOpt = validation.validate(request);
     assertFalse(errorOpt.isEmpty());
     assertEquals(errorOpt.get().getErrorCode(), "ERROR_CODE_6");
     assertEquals(errorOpt.get().getDescription(), "Field selectedVehicle must not be empty!");
@@ -40,7 +40,7 @@ class EmptySelectedVehicleValidationTest {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getSelectedVehicle()).thenReturn(List.of());
         when(errorFactory.buildError("ERROR_CODE_6")).thenReturn( new ValidationError("ERROR_CODE_6", "Field selectedVehicle must not be empty!"));
-        Optional<ValidationError>errorOpt = validation.execute(request);
+        Optional<ValidationError>errorOpt = validation.validate(request);
         assertFalse(errorOpt.isEmpty());
         assertEquals(errorOpt.get().getErrorCode(), "ERROR_CODE_6");
         assertEquals(errorOpt.get().getDescription(), "Field selectedVehicle must not be empty!");
@@ -49,7 +49,7 @@ class EmptySelectedVehicleValidationTest {
     public void shouldReturnErrorWhenSelectedVehicleIsPresent() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getSelectedVehicle()).thenReturn(List.of("CAR_PREMIUM"));
-        Optional<ValidationError>errorOpt = validation.execute(request);
+        Optional<ValidationError>errorOpt = validation.validate(request);
         assertTrue(errorOpt.isEmpty());
     }
 }

@@ -32,7 +32,7 @@ class DateFromLessThenDateToValidationTest {
         when(request.getAgreementDateFrom()).thenReturn(createDate("05.01.2026"));
         when((request.getAgreementDateTo())).thenReturn(createDate("01.01.2026"));
         when(errorFactory.buildError("ERROR_CODE_5")).thenReturn( new ValidationError("ERROR_CODE_5", "Field agreementDateFrom must be less than agreementDateTo!"));
-        Optional<ValidationError> error = validation.execute(request);
+        Optional<ValidationError> error = validation.validate(request);
         assertFalse(error.isEmpty());
         assertEquals(error.get().getErrorCode(), "ERROR_CODE_5");
         assertEquals(error.get().getDescription(), "Field agreementDateFrom must be less than agreementDateTo!");
@@ -44,7 +44,7 @@ class DateFromLessThenDateToValidationTest {
         when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2026"));
         when((request.getAgreementDateTo())).thenReturn(createDate("01.01.2026"));
         when(errorFactory.buildError("ERROR_CODE_5")).thenReturn( new ValidationError("ERROR_CODE_5", "Field agreementDateFrom must be less than agreementDateTo!"));
-        Optional<ValidationError> error = validation.execute(request);
+        Optional<ValidationError> error = validation.validate(request);
         assertFalse(error.isEmpty());
         assertEquals(error.get().getErrorCode(), "ERROR_CODE_5");
         assertEquals(error.get().getDescription(), "Field agreementDateFrom must be less than agreementDateTo!");
@@ -55,7 +55,7 @@ class DateFromLessThenDateToValidationTest {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2026"));
         when((request.getAgreementDateTo())).thenReturn(createDate("05.01.2026"));
-        Optional<ValidationError> error = validation.execute(request);
+        Optional<ValidationError> error = validation.validate(request);
         assertTrue(error.isEmpty());
     }
 
