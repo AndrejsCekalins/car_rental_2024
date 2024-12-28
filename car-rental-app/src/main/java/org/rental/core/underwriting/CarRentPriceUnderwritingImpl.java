@@ -6,18 +6,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Component
 class CarRentPriceUnderwritingImpl implements CarRentPriceUnderwriting {
 
     @Autowired
-    private DateTimeUtil dateTimeService;
+    private List<CarRentPriceCalculator> carRentPriceCalculators;
 
     @Override
     public BigDecimal calculatePrice(CarRentPriceCalculationRequest request) {
-        {
-            var daysBetween = dateTimeService.getDaysBetween(request.getAgreementDateFrom(), request.getAgreementDateTo());
-            return new BigDecimal(daysBetween);
-        }
+        return request.getSelectedCar().stream()
+                .map(carIc -> calculatePriceForCar(carIc, request))
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
+
+    private BigDecimal calculatePriceForCar( String carIc, CarRentPriceCalculationRequest request) {
+        var carRentPriceCalculator =findCarRentPriceCalculator(carIc);
+        return carRentPriceCalculator.calculatePrice(request);
+
+    }
+
+    private CarRentPriceCalculator findCarRentPriceCalculator (String carIc) {
+        return carRentPriceCalculators.stream()
+                .filter(carRentCalculator ->carRentCalculator.getCarIc().equals(carIc))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Not supported carIc = " + carIc));
+    }
+
+
 }
+

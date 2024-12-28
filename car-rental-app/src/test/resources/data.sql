@@ -1,5 +1,5 @@
 INSERT INTO classifiers(title, description)
-VALUES('VEHICLE_TYPE', 'Car typ classifier');
+VALUES('CAR_TYPE', 'Car typ classifier');
 
 INSERT INTO classifier_values(
 	classifier_id,
@@ -8,9 +8,9 @@ INSERT INTO classifier_values(
 SELECT
 	cl.id,
     'CAR_OPTIMUM',
-    'Car rent optimum vehicle type'
+    'Car rent optimum car type'
  FROM classifiers as cl
- WHERE cl.title = 'VEHICLE_TYPE';
+ WHERE cl.title = 'CAR_TYPE';
 
 INSERT INTO classifier_values(
 	classifier_id,
@@ -19,9 +19,9 @@ INSERT INTO classifier_values(
 SELECT
 	cl.id,
     'CAR_PREMIUM',
-    'Car rent premium vehicle type'
+    'Car rent premium car type'
  FROM classifiers as cl
- WHERE cl.title = 'VEHICLE_TYPE';
+ WHERE cl.title = 'CAR_TYPE';
 
 INSERT INTO classifier_values(
 	classifier_id,
@@ -30,9 +30,9 @@ INSERT INTO classifier_values(
 SELECT
 	cl.id,
     'CAR_VAN',
-    'Car rent van vehicle type'
+    'Car rent van car type'
  FROM classifiers as cl
- WHERE cl.title = 'VEHICLE_TYPE';
+ WHERE cl.title = 'CAR_TYPE';
 
 INSERT INTO classifier_values(
 	classifier_id,
@@ -41,9 +41,9 @@ INSERT INTO classifier_values(
 SELECT
 	cl.id,
     'CAR_LUX',
-    'Car rent luxury vehicle type'
+    'Car rent luxury car type'
  FROM classifiers as cl
- WHERE cl.title = 'VEHICLE_TYPE';
+ WHERE cl.title = 'CAR_TYPE';
 
  INSERT INTO classifier_values(
  	classifier_id,
@@ -52,6 +52,6 @@ SELECT
  SELECT
  	cl.id,
      'CAR_SPORT',
-     'Car rent sport vehicle type'
+     'Car rent sport car type'
   FROM classifiers as cl
-  WHERE cl.title = 'VEHICLE_TYPE';
+  WHERE cl.title = 'CAR_TYPE';

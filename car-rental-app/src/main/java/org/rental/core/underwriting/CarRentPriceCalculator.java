@@ -4,7 +4,9 @@ import org.rental.dto.CarRentPriceCalculationRequest;
 
 import java.math.BigDecimal;
 
-public interface CarRentPriceUnderwriting {
+interface CarRentPriceCalculator {
 
     BigDecimal calculatePrice(CarRentPriceCalculationRequest request);
+
+    String getCarIc();
 }

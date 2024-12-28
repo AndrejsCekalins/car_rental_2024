@@ -1,47 +1,46 @@
 package org.rental.core.underwriting;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.rental.core.util.DateTimeUtil;
 import org.rental.dto.CarRentPriceCalculationRequest;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import java.math.BigDecimal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class CarRentPriceUnderwritingTest {
 
-    @Mock
-    private DateTimeUtil dateTimeService;
-
     @InjectMocks
     private CarRentPriceUnderwritingImpl priceUnderwriting;
 
-    @Test
-    public void shouldReturnResponseWithCorrectAgreementPrice() {
-        CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2024"));
-        when(request.getAgreementDateTo()).thenReturn(createDate("10.01.2024"));
-        when(dateTimeService.getDaysBetween(request.getAgreementDateFrom(), request.getAgreementDateTo())).thenReturn(9L);
-        BigDecimal price = priceUnderwriting.calculatePrice(request);
-        assertEquals(price, new BigDecimal(9L));
+    private CarRentPriceCalculator carRentPriceCalculator1;
+    private CarRentPriceCalculator carRentPriceCalculator2;
+
+    @BeforeEach
+    public void init(){
+        carRentPriceCalculator1=mock(CarRentPriceCalculator.class);
+        carRentPriceCalculator2=mock(CarRentPriceCalculator.class);
+        var carRentPriceCalculators = List.of(carRentPriceCalculator1, carRentPriceCalculator2);
+        ReflectionTestUtils.setField(priceUnderwriting, "carRentPriceCalculators", carRentPriceCalculators);
     }
 
+    @Test
+    public void shouldReturnResponseWithCorrectAgreementPrice() {
+        when(carRentPriceCalculator1.getCarIc()).thenReturn("CAR_OPTIMUM");
+        when(carRentPriceCalculator1.calculatePrice(any())).thenReturn(BigDecimal.ONE);
 
-    private Date createDate(String dateStr) {
-        try {
-            return new SimpleDateFormat("dd.MM.yyyy").parse(dateStr);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
+        CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
+        when(request.getSelectedCar()).thenReturn(List.of("CAR_OPTIMUM"));
+        BigDecimal price = priceUnderwriting.calculatePrice(request);
+        assertEquals(price, BigDecimal.ONE);
     }
 }

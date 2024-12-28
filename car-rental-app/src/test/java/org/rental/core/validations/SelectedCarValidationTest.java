@@ -6,7 +6,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.rental.core.domain.ClassifierValue;
-import org.rental.core.repositories.ClassifierRepository;
 import org.rental.core.repositories.ClassifierValueRepository;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.rental.dto.ValidationError;
@@ -18,17 +17,17 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class SelectedVehicleValidationTest {
+class SelectedCarValidationTest {
 
     @Mock private ClassifierValueRepository classifierValueRepository;
     @Mock private ValidationErrorFactory errorFactory;
 
-    @InjectMocks private SelectedVehicleValidation validation;
+    @InjectMocks private SelectedCarValidation validation;
 
     @Test
     public void shouldNotValidateWhenSelectedRisksIsNull(){
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getSelectedVehicle()).thenReturn(null);
+        when(request.getSelectedCar()).thenReturn(null);
         assertTrue(validation.validateList(request).isEmpty());
         verifyNoInteractions(classifierValueRepository, errorFactory);
     }
@@ -36,8 +35,8 @@ class SelectedVehicleValidationTest {
     @Test
     public void shouldValidateWithoutError(){
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getSelectedVehicle()).thenReturn(List.of("CAR_OPTIMUM"));
-        when(classifierValueRepository.findByClassifierTitleAndIc("VEHICLE_TYPE", "CAR_OPTIMUM")).
+        when(request.getSelectedCar()).thenReturn(List.of("CAR_OPTIMUM"));
+        when(classifierValueRepository.findByClassifierTitleAndIc("CAR_TYPE", "CAR_OPTIMUM")).
                 thenReturn(Optional.of(mock(ClassifierValue.class)));
         assertTrue(validation.validateList(request).isEmpty());
     }
@@ -45,8 +44,8 @@ class SelectedVehicleValidationTest {
     @Test
     public void shouldValidateWithError() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getSelectedVehicle()).thenReturn(List.of("CAR_ECONOMY"));
-        when(classifierValueRepository.findByClassifierTitleAndIc("VEHICLE_TYPE", "CAR_ECONOMY")).
+        when(request.getSelectedCar()).thenReturn(List.of("CAR_ECONOMY"));
+        when(classifierValueRepository.findByClassifierTitleAndIc("CAR_TYPE", "CAR_ECONOMY")).
                 thenReturn(Optional.empty());
 
         ValidationError error =mock(ValidationError.class);

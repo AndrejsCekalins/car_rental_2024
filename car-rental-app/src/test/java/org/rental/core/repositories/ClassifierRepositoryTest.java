@@ -23,9 +23,9 @@ class ClassifierRepositoryTest {
     }
     @Test
     public void shouldFindVehicleTypeClassifier() {
-        Optional<Classifier> vehicleTypeOpt = classifierRepository.findByTitle("VEHICLE_TYPE");
-        assertTrue(vehicleTypeOpt.isPresent());
-        assertEquals(vehicleTypeOpt.get().getTitle(), "VEHICLE_TYPE");
+        Optional<Classifier> carTypeOpt = classifierRepository.findByTitle("CAR_TYPE");
+        assertTrue(carTypeOpt.isPresent());
+        assertEquals(carTypeOpt.get().getTitle(), "CAR_TYPE");
     }
 
     @Test

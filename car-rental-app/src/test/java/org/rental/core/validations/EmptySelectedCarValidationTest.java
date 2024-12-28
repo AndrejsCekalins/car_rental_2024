@@ -16,39 +16,39 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)
-class EmptySelectedVehicleValidationTest {
+class EmptySelectedCarValidationTest {
 
     @Mock
     private ValidationErrorFactory errorFactory;
 
     @InjectMocks
-    private EmptySelectedVehicleValidation validation;
+    private EmptySelectedCarValidation validation;
 
 @Test
-    public void shouldReturnErrorWhenSelectedVehicleIsNull() {
+    public void shouldReturnErrorWhenSelectedCarIsNull() {
     CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-    when(request.getSelectedVehicle()).thenReturn(null);
-    when(errorFactory.buildError("ERROR_CODE_6")).thenReturn( new ValidationError("ERROR_CODE_6", "Field selectedVehicle must not be empty!"));
+    when(request.getSelectedCar()).thenReturn(null);
+    when(errorFactory.buildError("ERROR_CODE_6")).thenReturn( new ValidationError("ERROR_CODE_6", "Field selectedCar must not be empty!"));
     Optional<ValidationError>errorOpt = validation.validate(request);
     assertFalse(errorOpt.isEmpty());
     assertEquals(errorOpt.get().getErrorCode(), "ERROR_CODE_6");
-    assertEquals(errorOpt.get().getDescription(), "Field selectedVehicle must not be empty!");
+    assertEquals(errorOpt.get().getDescription(), "Field selectedCar must not be empty!");
 }
 
     @Test
-    public void shouldReturnErrorWhenSelectedVehicleIsEmpty() {
+    public void shouldReturnErrorWhenSelectedCarIsEmpty() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getSelectedVehicle()).thenReturn(List.of());
-        when(errorFactory.buildError("ERROR_CODE_6")).thenReturn( new ValidationError("ERROR_CODE_6", "Field selectedVehicle must not be empty!"));
+        when(request.getSelectedCar()).thenReturn(List.of());
+        when(errorFactory.buildError("ERROR_CODE_6")).thenReturn( new ValidationError("ERROR_CODE_6", "Field selectedCar must not be empty!"));
         Optional<ValidationError>errorOpt = validation.validate(request);
         assertFalse(errorOpt.isEmpty());
         assertEquals(errorOpt.get().getErrorCode(), "ERROR_CODE_6");
-        assertEquals(errorOpt.get().getDescription(), "Field selectedVehicle must not be empty!");
+        assertEquals(errorOpt.get().getDescription(), "Field selectedCar must not be empty!");
     }
     @Test
-    public void shouldReturnErrorWhenSelectedVehicleIsPresent() {
+    public void shouldReturnErrorWhenSelectedCarIsPresent() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getSelectedVehicle()).thenReturn(List.of("CAR_PREMIUM"));
+        when(request.getSelectedCar()).thenReturn(List.of("CAR_PREMIUM"));
         Optional<ValidationError>errorOpt = validation.validate(request);
         assertTrue(errorOpt.isEmpty());
     }

@@ -9,7 +9,7 @@
   },
   {
     "errorCode":"ERROR_CODE_6",
-    "description":"Field selectedVehicle must not be empty!"
+    "description":"Field selectedCar must not be empty!"
   },
   {
     "errorCode":"ERROR_CODE_8",

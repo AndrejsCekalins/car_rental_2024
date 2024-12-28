@@ -110,16 +110,16 @@ public class CarRentPriceCalculationControllerTest {
     @Test
     public void selectedVehicleEmpty() throws Exception {
         executeAndCompare(
-                "rest/CarRentPriceCalculationRequest_selectedVehicle_empty.json",
-                "rest/CarRentPriceCalculationResponse_selectedVehicle_empty.json"
+                "rest/CarRentPriceCalculationRequest_selectedCar_empty.json",
+                "rest/CarRentPriceCalculationResponse_selectedCar_empty.json"
         );
     }
 
     @Test
     public void selectedVehicleNull() throws Exception {
         executeAndCompare(
-                "rest/CarRentPriceCalculationRequest_selectedVehicle_null.json",
-                "rest/CarRentPriceCalculationResponse_selectedVehicle_null.json"
+                "rest/CarRentPriceCalculationRequest_selectedCar_null.json",
+                "rest/CarRentPriceCalculationResponse_selectedCar_null.json"
         );
     }
 

@@ -12,39 +12,39 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
-public class SelectedVehicleValidation extends CarRentRequestValidationImpl {
+public class SelectedCarValidation extends CarRentRequestValidationImpl {
 
     @Autowired private ClassifierValueRepository classifierValueRepository;
     @Autowired private ValidationErrorFactory errorFactory;
 
     @Override
     public List<ValidationError> validateList(CarRentPriceCalculationRequest request) {
-        return request.getSelectedVehicle() != null
+        return request.getSelectedCar() != null
                 ? validateSelectedVehicle(request)
                 : List.of();
     }
 
     private List<ValidationError> validateSelectedVehicle(CarRentPriceCalculationRequest request){
-        return request.getSelectedVehicle().stream()
-                .map(this::validateVehicleIc)
+        return request.getSelectedCar().stream()
+                .map(this::validateCarIc)
                 .filter(Optional::isPresent)
                 .map(Optional::get)
                 .collect(Collectors.toList());
 
     }
 
-    private Optional<ValidationError> validateVehicleIc(String vehicleIc){
-        return !existInDatabase(vehicleIc)
-                ? Optional.of(buildValidationError(vehicleIc))
+    private Optional<ValidationError> validateCarIc(String carIc){
+        return !existInDatabase(carIc)
+                ? Optional.of(buildValidationError(carIc))
                 : Optional.empty();
     }
 
-    private ValidationError buildValidationError(String vehicleIc) {
-        Placeholder placeholder = new Placeholder("NOT_EXISTING_VEHICLE_TYPE", vehicleIc);
+    private ValidationError buildValidationError(String carIc) {
+        Placeholder placeholder = new Placeholder("NOT_EXISTING_CAR_TYPE", carIc);
         return errorFactory.buildError("ERROR_CODE_9", List.of(placeholder));
     }
 
-    private boolean existInDatabase(String vehicleIc) {
-        return classifierValueRepository.findByClassifierTitleAndIc("VEHICLE_TYPE", vehicleIc).isPresent();
+    private boolean existInDatabase(String carIc) {
+        return classifierValueRepository.findByClassifierTitleAndIc("CAR_TYPE", carIc).isPresent();
     }
 }

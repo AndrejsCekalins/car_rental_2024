@@ -3,5 +3,5 @@
   "personLastName" : null,
   "agreementDateFrom" : null,
   "agreementDateTo" : null,
-  "selectedVehicle" : null
+  "selectedCar" : null
 }

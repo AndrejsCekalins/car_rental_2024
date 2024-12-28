@@ -21,33 +21,33 @@ class ClassifierValueRepositoryTest {
     public void injectedRepositoryAreNotNull() {assertNotNull(classifierValueRepository);}
 
     @Test
-    public void shouldFind_VehicleType_CAR_OPTIMUM(){
-        searchClassifierValueAndCheck("VEHICLE_TYPE","CAR_OPTIMUM" );
+    public void shouldFind_CarType_CAR_OPTIMUM(){
+        searchClassifierValueAndCheck("CAR_TYPE","CAR_OPTIMUM" );
     }
 
     @Test
-    public void shouldFind_VehicleType_CAR_PREMIUM() {
-        searchClassifierValueAndCheck("VEHICLE_TYPE", "CAR_PREMIUM");
+    public void shouldFind_CarType_CAR_PREMIUM() {
+        searchClassifierValueAndCheck("CAR_TYPE", "CAR_PREMIUM");
     }
 
     @Test
-    public void shouldFind_VehicleType_CAR_VAN() {
-        searchClassifierValueAndCheck("VEHICLE_TYPE","CAR_VAN" );
+    public void shouldFind_CarType_CAR_VAN() {
+        searchClassifierValueAndCheck("CAR_TYPE","CAR_VAN" );
     }
 
     @Test
-    public void shouldFind_VehicleType_CAR_LUX() {
-        searchClassifierValueAndCheck("VEHICLE_TYPE","CAR_LUX" );
+    public void shouldFind_CarType_CAR_LUX() {
+        searchClassifierValueAndCheck("CAR_TYPE","CAR_LUX" );
     }
 
     @Test
-    public void shouldFind_VehicleType_CAR_SPORT() {
-        searchClassifierValueAndCheck("VEHICLE_TYPE","CAR_SPORT" );
+    public void shouldFind_CarType_CAR_SPORT() {
+        searchClassifierValueAndCheck("CAR_TYPE","CAR_SPORT" );
     }
 
     @Test
-    public void shouldFind_VehicleType_FAKE() {
-        Optional<ClassifierValue> valueOpt = classifierValueRepository.findByClassifierTitleAndIc("VEHICLE_TYPE", "FAKE");
+    public void shouldFind_CarType_FAKE() {
+        Optional<ClassifierValue> valueOpt = classifierValueRepository.findByClassifierTitleAndIc("CAR_TYPE", "FAKE");
         assertTrue(valueOpt.isEmpty());
     }
 

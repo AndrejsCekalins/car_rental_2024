@@ -26,6 +26,6 @@ public class CarRentPriceCalculationRequest {
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date agreementDateTo;
 
-    @JsonAlias("selected_vehicle")
-    private List<String> selectedVehicle;
+    @JsonAlias("selected_car")
+    private List<String> selectedCar;
 }
