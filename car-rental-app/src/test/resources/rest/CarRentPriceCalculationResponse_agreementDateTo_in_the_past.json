@@ -13,6 +13,6 @@
   "personLastName": null,
   "agreementDateFrom": null,
   "agreementDateTo": null,
-  "agreementPremium": null,
+  "agreementTotalPrice": null,
   "carsForRent": null
 }

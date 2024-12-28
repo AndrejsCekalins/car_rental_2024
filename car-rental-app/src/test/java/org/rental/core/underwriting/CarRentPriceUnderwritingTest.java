@@ -34,13 +34,27 @@ class CarRentPriceUnderwritingTest {
     }
 
     @Test
-    public void shouldReturnResponseWithCorrectAgreementPrice() {
-        when(carRentPriceCalculator1.getCarIc()).thenReturn("CAR_OPTIMUM");
+    public void shouldCalculatePriceForOneCarForRent() {
+        when(carRentPriceCalculator1.getCarIc()).thenReturn("CAR_PREMIUM");
         when(carRentPriceCalculator1.calculatePrice(any())).thenReturn(BigDecimal.ONE);
 
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
-        when(request.getSelectedCar()).thenReturn(List.of("CAR_OPTIMUM"));
-        BigDecimal price = priceUnderwriting.calculatePrice(request);
-        assertEquals(price, BigDecimal.ONE);
+        when(request.getSelectedCar()).thenReturn(List.of("CAR_PREMIUM"));
+        CarRentPriceCalculationResult carRentPriceCalculationResult = priceUnderwriting.calculatePrice(request);
+        assertEquals(carRentPriceCalculationResult.getTotalPrice(), BigDecimal.ONE);
+    }
+
+    @Test
+    public void shouldCalculatePriceForTwoCarsForRent() {
+        when(carRentPriceCalculator1.getCarIc()).thenReturn("CAR_PREMIUM");
+        when(carRentPriceCalculator2.getCarIc()).thenReturn("CAR_LUX");
+
+        when(carRentPriceCalculator1.calculatePrice(any())).thenReturn(BigDecimal.ONE);
+        when(carRentPriceCalculator2.calculatePrice(any())).thenReturn(BigDecimal.ONE);
+
+        CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
+        when(request.getSelectedCar()).thenReturn(List.of("CAR_PREMIUM", "CAR_LUX"));
+        CarRentPriceCalculationResult carRentPriceCalculationResult = priceUnderwriting.calculatePrice(request);
+        assertEquals(carRentPriceCalculationResult.getTotalPrice(), BigDecimal.TWO);
     }
 }

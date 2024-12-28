@@ -25,7 +25,7 @@ public class CarRentPriceCalculationResponse extends CoreResponse {
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date agreementDateTo;
 
-    private BigDecimal agreementPremium;
+    private BigDecimal agreementTotalPrice;
 
     private List<CarRentPrice> carsForRent;
 

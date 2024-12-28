@@ -6,5 +6,5 @@ import java.math.BigDecimal;
 
 public interface CarRentPriceUnderwriting {
 
-    BigDecimal calculatePrice(CarRentPriceCalculationRequest request);
+   CarRentPriceCalculationResult calculatePrice(CarRentPriceCalculationRequest request);
 }

@@ -1,5 +1,6 @@
 package org.rental.core.services;
 
+import org.rental.core.underwriting.CarRentPriceCalculationResult;
 import org.rental.core.underwriting.CarRentPriceUnderwriting;
 import org.rental.core.validations.CarRentPriceCalculationRequestValidator;
 import org.rental.dto.CarRentPrice;
@@ -16,10 +17,14 @@ import java.util.stream.Collectors;
 @Component
 public class CarRentPriceCalculationServiceImpl implements CarRentPriceCalculationService {
 
-    @Autowired
-    private CarRentPriceCalculationRequestValidator requestValidator;
-    @Autowired
-    private CarRentPriceUnderwriting priceUnderwriting;
+    private final CarRentPriceCalculationRequestValidator requestValidator;
+    private final CarRentPriceUnderwriting priceUnderwriting;
+
+    CarRentPriceCalculationServiceImpl(CarRentPriceCalculationRequestValidator requestValidator,
+                                       CarRentPriceUnderwriting priceUnderwriting) {
+        this.requestValidator = requestValidator;
+        this.priceUnderwriting = priceUnderwriting;
+    }
 
     @Override
     public CarRentPriceCalculationResponse calculatePrice(CarRentPriceCalculationRequest request) {
@@ -34,20 +39,23 @@ public class CarRentPriceCalculationServiceImpl implements CarRentPriceCalculati
         return new CarRentPriceCalculationResponse(errors);
     }
 
-    private CarRentPriceCalculationResponse buildResponse(CarRentPriceCalculationRequest request, BigDecimal price) {
+    private CarRentPriceCalculationResponse buildResponse(CarRentPriceCalculationRequest request,
+                                                          CarRentPriceCalculationResult priceCalculationResult) {
         CarRentPriceCalculationResponse response = new CarRentPriceCalculationResponse();
         response.setPersonFirstName(request.getPersonFirstName());
         response.setPersonLastName(request.getPersonLastName());
         response.setAgreementDateFrom(request.getAgreementDateFrom());
         response.setAgreementDateTo(request.getAgreementDateTo());
-        response.setAgreementPremium(price);
-        response.setCarsForRent(buildCarsForRent(request));
+        response.setAgreementTotalPrice(priceCalculationResult.getTotalPrice());
+        response.setCarsForRent(priceCalculationResult.getCarRentPrices());
         return response;
     }
 
-    private List<CarRentPrice> buildCarsForRent( CarRentPriceCalculationRequest request) {
+   /* private List<CarRentPrice> buildCarsForRent( CarRentPriceCalculationRequest request) {
         return request.getSelectedCar().stream()
                 .map(carIc -> new CarRentPrice(carIc, BigDecimal.ZERO))
                 .collect(Collectors.toList());
     }
+
+    */
 }

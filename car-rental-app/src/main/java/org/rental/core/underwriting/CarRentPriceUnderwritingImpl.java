@@ -1,24 +1,34 @@
 package org.rental.core.underwriting;
 
-import org.rental.core.util.DateTimeUtil;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import org.rental.dto.CarRentPrice;
 import org.rental.dto.CarRentPriceCalculationRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 class CarRentPriceUnderwritingImpl implements CarRentPriceUnderwriting {
 
-    @Autowired
-    private List<CarRentPriceCalculator> carRentPriceCalculators;
+    private final List<CarRentPriceCalculator> carRentPriceCalculators;
 
     @Override
-    public BigDecimal calculatePrice(CarRentPriceCalculationRequest request) {
-        return request.getSelectedCar().stream()
-                .map(carIc -> calculatePriceForCar(carIc, request))
+    public CarRentPriceCalculationResult calculatePrice(CarRentPriceCalculationRequest request) {
+        List<CarRentPrice>carRentPrices = request.getSelectedCar().stream()
+                .map(carIc-> {
+                        BigDecimal carRentPrice = calculatePriceForCar(carIc, request);
+                        return new CarRentPrice(carIc, carRentPrice);
+                })
+                .toList();
+
+        BigDecimal totalPrice =carRentPrices.stream()
+                .map(CarRentPrice::getPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        return new CarRentPriceCalculationResult(totalPrice, carRentPrices);
     }
 
     private BigDecimal calculatePriceForCar( String carIc, CarRentPriceCalculationRequest request) {
@@ -33,7 +43,6 @@ class CarRentPriceUnderwritingImpl implements CarRentPriceUnderwriting {
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Not supported carIc = " + carIc));
     }
-
 
 }
 

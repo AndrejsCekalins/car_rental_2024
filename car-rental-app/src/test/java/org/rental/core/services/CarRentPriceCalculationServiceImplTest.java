@@ -5,6 +5,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.rental.core.underwriting.CarRentPriceCalculationResult;
 import org.rental.core.underwriting.CarRentPriceUnderwriting;
 import org.rental.core.validations.CarRentPriceCalculationRequestValidator;
 import org.rental.dto.CarRentPriceCalculationRequest;
@@ -68,6 +69,8 @@ class CarRentPriceCalculationServiceImplTest {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(requestValidator.validate(request)).thenReturn(List.of());
         when(request.getPersonFirstName()).thenReturn("personFirstName");
+        CarRentPriceCalculationResult carRentPriceCalculationResult = mock(CarRentPriceCalculationResult.class);
+        when(priceUnderwriting.calculatePrice(request)).thenReturn(carRentPriceCalculationResult);
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertFalse(response.hasErrors());
         assertEquals(response.getPersonFirstName(), "personFirstName");
@@ -78,6 +81,8 @@ class CarRentPriceCalculationServiceImplTest {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(requestValidator.validate(request)).thenReturn(List.of());
         when(request.getPersonLastName()).thenReturn("personLastName");
+        CarRentPriceCalculationResult carRentPriceCalculationResult = mock(CarRentPriceCalculationResult.class);
+        when(priceUnderwriting.calculatePrice(request)).thenReturn(carRentPriceCalculationResult);
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertFalse(response.hasErrors());
         assertEquals(response.getPersonLastName(), "personLastName");
@@ -89,6 +94,8 @@ class CarRentPriceCalculationServiceImplTest {
         Date dateFrom = new Date();
         when(requestValidator.validate(request)).thenReturn(List.of());
         when(request.getAgreementDateFrom()).thenReturn(dateFrom);
+        CarRentPriceCalculationResult carRentPriceCalculationResult = mock(CarRentPriceCalculationResult.class);
+        when(priceUnderwriting.calculatePrice(request)).thenReturn(carRentPriceCalculationResult);
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertFalse(response.hasErrors());
         assertEquals(response.getAgreementDateFrom(), dateFrom);
@@ -100,6 +107,8 @@ class CarRentPriceCalculationServiceImplTest {
         Date dateTo = new Date();
         when(requestValidator.validate(request)).thenReturn(List.of());
         when(request.getAgreementDateTo()).thenReturn(dateTo);
+        CarRentPriceCalculationResult carRentPriceCalculationResult = mock(CarRentPriceCalculationResult.class);
+        when(priceUnderwriting.calculatePrice(request)).thenReturn(carRentPriceCalculationResult);
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertFalse(response.hasErrors());
         assertEquals(response.getAgreementDateTo(), dateTo);
@@ -111,10 +120,11 @@ class CarRentPriceCalculationServiceImplTest {
         when(requestValidator.validate(request)).thenReturn(List.of());
         when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2024"));
         when(request.getAgreementDateTo()).thenReturn(createDate("10.01.2024"));
-        when(priceUnderwriting.calculatePrice(request)).thenReturn(new BigDecimal(9L));
+        CarRentPriceCalculationResult carRentPriceCalculationResult = new CarRentPriceCalculationResult(new BigDecimal(9), null);
+        when(priceUnderwriting.calculatePrice(request)).thenReturn(carRentPriceCalculationResult);
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertFalse(response.hasErrors());
-        assertEquals(response.getAgreementPremium(), new BigDecimal(9));
+        assertEquals(response.getAgreementTotalPrice(), new BigDecimal(9));
     }
 
     private List<ValidationError> buildValidationErrorList() {
