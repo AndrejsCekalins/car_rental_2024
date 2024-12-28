@@ -4,5 +4,12 @@
   "personLastName": "LastName",
   "agreementDateFrom": "2026-05-25",
   "agreementDateTo": "2026-05-29",
-  "agreementPrice": 4
+  "agreementPremium": 0,
+  "carsForRent": [ {
+      "carIc": "CAR_PREMIUM",
+      "price": 0
+    }, {
+      "carIc": "CAR_LUX",
+      "price": 0
+    } ]
 }

@@ -3,5 +3,5 @@
   "personLastName" : "",
   "agreementDateFrom" : "2026-05-25",
   "agreementDateTo" : "2026-05-29",
-  "selectedCar" : ["CAR_OPTIMUM"]
+  "selectedCar" : ["CAR_PREMIUM", "CAR_LUX"]
 }

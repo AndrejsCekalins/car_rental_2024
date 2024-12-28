@@ -114,7 +114,7 @@ class CarRentPriceCalculationServiceImplTest {
         when(priceUnderwriting.calculatePrice(request)).thenReturn(new BigDecimal(9L));
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertFalse(response.hasErrors());
-        assertEquals(response.getAgreementPrice(), new BigDecimal(9));
+        assertEquals(response.getAgreementPremium(), new BigDecimal(9));
     }
 
     private List<ValidationError> buildValidationErrorList() {

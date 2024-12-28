@@ -1,0 +1,314 @@
+2024-12-28 11:57:55,721 [main] INFO  org.rental.CarRentApplication - Starting CarRentApplication using Java 21.0.2 with PID 28116 (C:\Users\sesa99547\IdeaProjects\car_rental_2024\car-rental-app\build\classes\java\main started by SESA99547 in C:\Users\sesa99547\IdeaProjects\car_rental_2024)
+2024-12-28 11:57:55,736 [main] INFO  org.rental.CarRentApplication - No active profile set, falling back to 1 default profile: "default"
+2024-12-28 11:57:56,692 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-28 11:57:56,787 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 84 ms. Found 2 JPA repository interfaces.
+2024-12-28 11:57:57,599 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-12-28 11:57:57,616 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-12-28 11:57:57,616 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-12-28 11:57:57,616 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-12-28 11:57:57,706 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-12-28 11:57:57,707 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1916 ms
+2024-12-28 11:57:57,746 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-12-28 11:57:58,037 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-12-28 11:57:58,041 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-12-28 11:57:58,058 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-12-28 11:57:58,392 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+2024-12-28 11:57:59,084 [main] INFO  liquibase.changelog - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-12-28 11:57:59,278 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2024-12-28 11:57:59,399 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-12-28 11:57:59,402 [main] INFO  liquibase.command - Using deploymentId: 5379879399
+2024-12-28 11:57:59,404 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2024-12-28 11:57:59,438 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-1.xml::1::andrejsc
+2024-12-28 11:57:59,450 [main] INFO  liquibase.changelog - Table classifiers created
+2024-12-28 11:57:59,450 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-1.xml::1::andrejsc ran successfully in 12ms
+2024-12-28 11:57:59,450 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-1.xml::2::andrejsc
+2024-12-28 11:57:59,450 [main] INFO  liquibase.changelog - Index ix_classifiers_title created
+2024-12-28 11:57:59,450 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-1.xml::2::andrejsc ran successfully in 0ms
+2024-12-28 11:57:59,464 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-2.xml::3::andrejsc
+2024-12-28 11:57:59,466 [main] INFO  liquibase.changelog - Table classifier_values created
+2024-12-28 11:57:59,466 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-2.xml::3::andrejsc ran successfully in 2ms
+2024-12-28 11:57:59,466 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-2.xml::4::andrejsc
+2024-12-28 11:57:59,474 [main] INFO  liquibase.changelog - Foreign key constraint added to classifier_values (classifier_id)
+2024-12-28 11:57:59,475 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-2.xml::4::andrejsc ran successfully in 9ms
+2024-12-28 11:57:59,477 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-2.xml::5::andrejsc
+2024-12-28 11:57:59,477 [main] INFO  liquibase.changelog - Index ix_classifier_values_ic created
+2024-12-28 11:57:59,477 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-2.xml::5::andrejsc ran successfully in 0ms
+2024-12-28 11:57:59,479 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-3.xml::6::andrejsc
+2024-12-28 11:57:59,491 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-12-28 11:57:59,491 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-3.xml::6::andrejsc ran successfully in 12ms
+2024-12-28 11:57:59,491 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-3.xml::7::andrejsc
+2024-12-28 11:57:59,509 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-12-28 11:57:59,509 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-3.xml::7::andrejsc ran successfully in 18ms
+2024-12-28 11:57:59,516 [main] INFO  liquibase.util - UPDATE SUMMARY
+2024-12-28 11:57:59,516 [main] INFO  liquibase.util - Run:                          7
+2024-12-28 11:57:59,516 [main] INFO  liquibase.util - Previously run:               0
+2024-12-28 11:57:59,516 [main] INFO  liquibase.util - Filtered out:                 0
+2024-12-28 11:57:59,516 [main] INFO  liquibase.util - -------------------------------
+2024-12-28 11:57:59,516 [main] INFO  liquibase.util - Total change sets:            7
+2024-12-28 11:57:59,516 [main] INFO  liquibase.util - Update summary generated
+2024-12-28 11:57:59,527 [main] INFO  liquibase.command - Update command completed successfully.
+2024-12-28 11:57:59,527 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 13
+2024-12-28 11:57:59,532 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-12-28 11:57:59,532 [main] INFO  liquibase.command - Command execution complete
+2024-12-28 11:57:59,658 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-28 11:57:59,767 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-12-28 11:57:59,816 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-12-28 11:58:00,315 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-28 11:58:00,385 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-28 11:58:01,355 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-28 11:58:01,386 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-28 11:58:01,752 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-28 11:58:02,386 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-28 11:58:02,879 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-12-28 11:58:02,924 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-12-28 11:58:02,930 [main] INFO  org.rental.CarRentApplication - Started CarRentApplication in 7.737 seconds (process running for 8.859)
+2024-12-28 12:00:28,356 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-28 12:00:28,356 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-12-28 12:00:28,372 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 16 ms
+2024-12-28 12:00:28,739 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","selectedCar":null}
+2024-12-28 12:00:28,753 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":[{"errorCode":"ERROR_CODE_6","description":"Field selectedVehicle must not be empty!"}],"personFirstName":null,"personLastName":null,"agreementDateFrom":null,"agreementDateTo":null,"agreementPrice":null}
+2024-12-28 12:00:28,753 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 51
+2024-12-28 12:00:53,569 [http-nio-8080-exec-3] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","selectedCar":null}
+2024-12-28 12:00:53,579 [http-nio-8080-exec-3] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":[{"errorCode":"ERROR_CODE_6","description":"Field selectedVehicle must not be empty!"}],"personFirstName":null,"personLastName":null,"agreementDateFrom":null,"agreementDateTo":null,"agreementPrice":null}
+2024-12-28 12:00:53,579 [http-nio-8080-exec-3] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 16
+2024-12-28 12:02:42,686 [http-nio-8080-exec-5] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","selectedCar":null}
+2024-12-28 12:02:42,695 [http-nio-8080-exec-5] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":[{"errorCode":"ERROR_CODE_6","description":"Field selectedVehicle must not be empty!"}],"personFirstName":null,"personLastName":null,"agreementDateFrom":null,"agreementDateTo":null,"agreementPrice":null}
+2024-12-28 12:02:42,695 [http-nio-8080-exec-5] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 9
+2024-12-28 12:10:01,761 [main] INFO  org.rental.CarRentApplication - Starting CarRentApplication using Java 21.0.2 with PID 31068 (C:\Users\sesa99547\IdeaProjects\car_rental_2024\car-rental-app\build\classes\java\main started by SESA99547 in C:\Users\sesa99547\IdeaProjects\car_rental_2024)
+2024-12-28 12:10:01,761 [main] INFO  org.rental.CarRentApplication - No active profile set, falling back to 1 default profile: "default"
+2024-12-28 12:10:02,707 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-28 12:10:02,804 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 78 ms. Found 2 JPA repository interfaces.
+2024-12-28 12:10:03,613 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-12-28 12:10:03,628 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-12-28 12:10:03,628 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-12-28 12:10:03,628 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-12-28 12:10:03,726 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-12-28 12:10:03,726 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1894 ms
+2024-12-28 12:10:03,758 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-12-28 12:10:04,026 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-12-28 12:10:04,026 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-12-28 12:10:04,044 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-12-28 12:10:04,360 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+2024-12-28 12:10:05,047 [main] INFO  liquibase.changelog - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-12-28 12:10:05,214 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2024-12-28 12:10:05,332 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-12-28 12:10:05,335 [main] INFO  liquibase.command - Using deploymentId: 5380605335
+2024-12-28 12:10:05,338 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2024-12-28 12:10:05,356 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-1.xml::1::andrejsc
+2024-12-28 12:10:05,375 [main] INFO  liquibase.changelog - Table classifiers created
+2024-12-28 12:10:05,375 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-1.xml::1::andrejsc ran successfully in 3ms
+2024-12-28 12:10:05,391 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-1.xml::2::andrejsc
+2024-12-28 12:10:05,391 [main] INFO  liquibase.changelog - Index ix_classifiers_title created
+2024-12-28 12:10:05,391 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-1.xml::2::andrejsc ran successfully in 0ms
+2024-12-28 12:10:05,397 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-2.xml::3::andrejsc
+2024-12-28 12:10:05,399 [main] INFO  liquibase.changelog - Table classifier_values created
+2024-12-28 12:10:05,399 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-2.xml::3::andrejsc ran successfully in 2ms
+2024-12-28 12:10:05,400 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-2.xml::4::andrejsc
+2024-12-28 12:10:05,408 [main] INFO  liquibase.changelog - Foreign key constraint added to classifier_values (classifier_id)
+2024-12-28 12:10:05,408 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-2.xml::4::andrejsc ran successfully in 8ms
+2024-12-28 12:10:05,411 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-2.xml::5::andrejsc
+2024-12-28 12:10:05,413 [main] INFO  liquibase.changelog - Index ix_classifier_values_ic created
+2024-12-28 12:10:05,415 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-2.xml::5::andrejsc ran successfully in 2ms
+2024-12-28 12:10:05,415 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-3.xml::6::andrejsc
+2024-12-28 12:10:05,421 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-12-28 12:10:05,421 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-3.xml::6::andrejsc ran successfully in 6ms
+2024-12-28 12:10:05,436 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-3.xml::7::andrejsc
+2024-12-28 12:10:05,442 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-12-28 12:10:05,442 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-3.xml::7::andrejsc ran successfully in 6ms
+2024-12-28 12:10:05,460 [main] INFO  liquibase.util - UPDATE SUMMARY
+2024-12-28 12:10:05,460 [main] INFO  liquibase.util - Run:                          7
+2024-12-28 12:10:05,460 [main] INFO  liquibase.util - Previously run:               0
+2024-12-28 12:10:05,460 [main] INFO  liquibase.util - Filtered out:                 0
+2024-12-28 12:10:05,460 [main] INFO  liquibase.util - -------------------------------
+2024-12-28 12:10:05,460 [main] INFO  liquibase.util - Total change sets:            7
+2024-12-28 12:10:05,460 [main] INFO  liquibase.util - Update summary generated
+2024-12-28 12:10:05,469 [main] INFO  liquibase.command - Update command completed successfully.
+2024-12-28 12:10:05,469 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 13
+2024-12-28 12:10:05,469 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-12-28 12:10:05,469 [main] INFO  liquibase.command - Command execution complete
+2024-12-28 12:10:05,596 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-28 12:10:05,696 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-12-28 12:10:05,754 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-12-28 12:10:06,345 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-28 12:10:06,435 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-28 12:10:07,481 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-28 12:10:07,509 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-28 12:10:07,924 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-28 12:10:08,512 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-28 12:10:09,009 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-12-28 12:10:09,036 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-12-28 12:10:09,046 [main] INFO  org.rental.CarRentApplication - Started CarRentApplication in 7.838 seconds (process running for 8.961)
+2024-12-28 12:10:15,704 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-28 12:10:15,704 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-12-28 12:10:15,704 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-12-28 12:10:15,947 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","selectedCar":null}
+2024-12-28 12:10:15,956 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":[{"errorCode":"ERROR_CODE_6","description":"Field selectedCar must not be empty!"}],"personFirstName":null,"personLastName":null,"agreementDateFrom":null,"agreementDateTo":null,"agreementPrice":null}
+2024-12-28 12:10:15,963 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 39
+2024-12-28 12:10:35,476 [http-nio-8080-exec-3] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","selectedCar":null}
+2024-12-28 12:10:35,476 [http-nio-8080-exec-3] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":[{"errorCode":"ERROR_CODE_6","description":"Field selectedCar must not be empty!"}],"personFirstName":null,"personLastName":null,"agreementDateFrom":null,"agreementDateTo":null,"agreementPrice":null}
+2024-12-28 12:10:35,476 [http-nio-8080-exec-3] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 6
+2024-12-28 12:10:40,146 [http-nio-8080-exec-4] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","selectedCar":null}
+2024-12-28 12:10:40,146 [http-nio-8080-exec-4] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":[{"errorCode":"ERROR_CODE_6","description":"Field selectedCar must not be empty!"}],"personFirstName":null,"personLastName":null,"agreementDateFrom":null,"agreementDateTo":null,"agreementPrice":null}
+2024-12-28 12:10:40,146 [http-nio-8080-exec-4] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 6
+2024-12-28 12:11:16,421 [http-nio-8080-exec-5] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","selectedCar":null}
+2024-12-28 12:11:16,424 [http-nio-8080-exec-5] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":[{"errorCode":"ERROR_CODE_6","description":"Field selectedCar must not be empty!"}],"personFirstName":null,"personLastName":null,"agreementDateFrom":null,"agreementDateTo":null,"agreementPrice":null}
+2024-12-28 12:11:16,424 [http-nio-8080-exec-5] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 8
+2024-12-28 12:25:28,322 [http-nio-8080-exec-8] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","selectedCar":null}
+2024-12-28 12:25:28,322 [http-nio-8080-exec-8] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":[{"errorCode":"ERROR_CODE_6","description":"Field selectedCar must not be empty!"}],"personFirstName":null,"personLastName":null,"agreementDateFrom":null,"agreementDateTo":null,"agreementPrice":null}
+2024-12-28 12:25:28,322 [http-nio-8080-exec-8] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 6
+2024-12-28 12:25:48,138 [http-nio-8080-exec-9] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","selectedCar":null}
+2024-12-28 12:25:48,138 [http-nio-8080-exec-9] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":[{"errorCode":"ERROR_CODE_6","description":"Field selectedCar must not be empty!"}],"personFirstName":null,"personLastName":null,"agreementDateFrom":null,"agreementDateTo":null,"agreementPrice":null}
+2024-12-28 12:25:48,146 [http-nio-8080-exec-9] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 5
+2024-12-28 12:26:02,266 [http-nio-8080-exec-10] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character (']' (code 93)): expected a value]
+2024-12-28 12:26:30,684 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","selectedCar":null}
+2024-12-28 12:26:30,690 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":[{"errorCode":"ERROR_CODE_6","description":"Field selectedCar must not be empty!"}],"personFirstName":null,"personLastName":null,"agreementDateFrom":null,"agreementDateTo":null,"agreementPrice":null}
+2024-12-28 12:26:30,690 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 6
+2024-12-28 12:30:32,429 [http-nio-8080-exec-5] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","selectedCar":["CAR_OPTIMUM"]}
+2024-12-28 12:30:32,692 [http-nio-8080-exec-5] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":[{"errorCode":"ERROR_CODE_9","description":"Car Type ic = {NOT_EXISTING_CAR_TYPE} not supported!"}],"personFirstName":null,"personLastName":null,"agreementDateFrom":null,"agreementDateTo":null,"agreementPrice":null}
+2024-12-28 12:30:32,692 [http-nio-8080-exec-5] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 267
+2024-12-28 12:36:14,356 [http-nio-8080-exec-8] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":null,"personLastName":null,"agreementDateFrom":null,"agreementDateTo":null,"selectedCar":[]}
+2024-12-28 12:36:14,360 [http-nio-8080-exec-8] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":[{"errorCode":"ERROR_CODE_2","description":"Field agreementDateFrom must not be empty!"},{"errorCode":"ERROR_CODE_4","description":"Field agreementDateTo must not be empty!"},{"errorCode":"ERROR_CODE_6","description":"Field selectedCar must not be empty!"},{"errorCode":"ERROR_CODE_7","description":"Field personFirstName must not be empty!"},{"errorCode":"ERROR_CODE_8","description":"Field personLastName must not be empty!"}],"personFirstName":null,"personLastName":null,"agreementDateFrom":null,"agreementDateTo":null,"agreementPrice":null}
+2024-12-28 12:36:14,360 [http-nio-8080-exec-8] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 6
+2024-12-28 12:50:40,565 [http-nio-8080-exec-10] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","selectedCar":["CAR_OPTIMUM"]}
+2024-12-28 12:50:40,574 [http-nio-8080-exec-10] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":[{"errorCode":"ERROR_CODE_9","description":"Car Type ic = {NOT_EXISTING_CAR_TYPE} not supported!"}],"personFirstName":null,"personLastName":null,"agreementDateFrom":null,"agreementDateTo":null,"agreementPrice":null}
+2024-12-28 12:50:40,574 [http-nio-8080-exec-10] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 15
+2024-12-28 12:51:10,676 [main] INFO  org.rental.CarRentApplication - Starting CarRentApplication using Java 21.0.2 with PID 13004 (C:\Users\sesa99547\IdeaProjects\car_rental_2024\car-rental-app\build\classes\java\main started by SESA99547 in C:\Users\sesa99547\IdeaProjects\car_rental_2024)
+2024-12-28 12:51:10,680 [main] INFO  org.rental.CarRentApplication - No active profile set, falling back to 1 default profile: "default"
+2024-12-28 12:51:11,623 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-28 12:51:11,717 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 82 ms. Found 2 JPA repository interfaces.
+2024-12-28 12:51:12,591 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-12-28 12:51:12,610 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-12-28 12:51:12,614 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-12-28 12:51:12,614 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-12-28 12:51:12,703 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-12-28 12:51:12,706 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1961 ms
+2024-12-28 12:51:12,742 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-12-28 12:51:13,004 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-12-28 12:51:13,004 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-12-28 12:51:13,014 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-12-28 12:51:13,347 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+2024-12-28 12:51:14,075 [main] INFO  liquibase.changelog - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-12-28 12:51:14,297 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2024-12-28 12:51:14,394 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-12-28 12:51:14,408 [main] INFO  liquibase.command - Using deploymentId: 5383074408
+2024-12-28 12:51:14,411 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2024-12-28 12:51:14,443 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-1.xml::1::andrejsc
+2024-12-28 12:51:14,446 [main] INFO  liquibase.changelog - Table classifiers created
+2024-12-28 12:51:14,455 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-1.xml::1::andrejsc ran successfully in 10ms
+2024-12-28 12:51:14,455 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-1.xml::2::andrejsc
+2024-12-28 12:51:14,464 [main] INFO  liquibase.changelog - Index ix_classifiers_title created
+2024-12-28 12:51:14,464 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-1.xml::2::andrejsc ran successfully in 9ms
+2024-12-28 12:51:14,464 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-2.xml::3::andrejsc
+2024-12-28 12:51:14,464 [main] INFO  liquibase.changelog - Table classifier_values created
+2024-12-28 12:51:14,471 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-2.xml::3::andrejsc ran successfully in 0ms
+2024-12-28 12:51:14,473 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-2.xml::4::andrejsc
+2024-12-28 12:51:14,473 [main] INFO  liquibase.changelog - Foreign key constraint added to classifier_values (classifier_id)
+2024-12-28 12:51:14,473 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-2.xml::4::andrejsc ran successfully in 0ms
+2024-12-28 12:51:14,473 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-2.xml::5::andrejsc
+2024-12-28 12:51:14,473 [main] INFO  liquibase.changelog - Index ix_classifier_values_ic created
+2024-12-28 12:51:14,473 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-2.xml::5::andrejsc ran successfully in 0ms
+2024-12-28 12:51:14,485 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-3.xml::6::andrejsc
+2024-12-28 12:51:14,499 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-12-28 12:51:14,499 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-3.xml::6::andrejsc ran successfully in 14ms
+2024-12-28 12:51:14,503 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-3.xml::7::andrejsc
+2024-12-28 12:51:14,517 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-12-28 12:51:14,517 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-3.xml::7::andrejsc ran successfully in 14ms
+2024-12-28 12:51:14,528 [main] INFO  liquibase.util - UPDATE SUMMARY
+2024-12-28 12:51:14,528 [main] INFO  liquibase.util - Run:                          7
+2024-12-28 12:51:14,528 [main] INFO  liquibase.util - Previously run:               0
+2024-12-28 12:51:14,528 [main] INFO  liquibase.util - Filtered out:                 0
+2024-12-28 12:51:14,528 [main] INFO  liquibase.util - -------------------------------
+2024-12-28 12:51:14,528 [main] INFO  liquibase.util - Total change sets:            7
+2024-12-28 12:51:14,528 [main] INFO  liquibase.util - Update summary generated
+2024-12-28 12:51:14,531 [main] INFO  liquibase.command - Update command completed successfully.
+2024-12-28 12:51:14,531 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 13
+2024-12-28 12:51:14,535 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-12-28 12:51:14,535 [main] INFO  liquibase.command - Command execution complete
+2024-12-28 12:51:14,654 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-28 12:51:14,773 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-12-28 12:51:14,823 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-12-28 12:51:15,300 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-28 12:51:15,359 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-28 12:51:16,306 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-28 12:51:16,339 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-28 12:51:16,702 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-28 12:51:17,387 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-28 12:51:17,870 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-12-28 12:51:17,912 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-12-28 12:51:17,917 [main] INFO  org.rental.CarRentApplication - Started CarRentApplication in 7.788 seconds (process running for 8.882)
+2024-12-28 12:51:22,552 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-28 12:51:22,552 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-12-28 12:51:22,568 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 16 ms
+2024-12-28 12:51:22,840 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","selectedCar":["CAR_OPTIMUM"]}
+2024-12-28 12:51:23,077 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":null,"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","agreementPrice":4}
+2024-12-28 12:51:23,077 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 269
+2024-12-28 15:26:19,511 [main] INFO  org.rental.CarRentApplication - Starting CarRentApplication using Java 21.0.2 with PID 33840 (C:\Users\sesa99547\IdeaProjects\car_rental_2024\car-rental-app\build\classes\java\main started by SESA99547 in C:\Users\sesa99547\IdeaProjects\car_rental_2024)
+2024-12-28 15:26:19,515 [main] INFO  org.rental.CarRentApplication - No active profile set, falling back to 1 default profile: "default"
+2024-12-28 15:26:20,472 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-28 15:26:20,574 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 89 ms. Found 2 JPA repository interfaces.
+2024-12-28 15:26:21,319 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-12-28 15:26:21,327 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-12-28 15:26:21,327 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-12-28 15:26:21,327 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-12-28 15:26:21,400 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-12-28 15:26:21,400 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1829 ms
+2024-12-28 15:26:21,431 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-12-28 15:26:21,669 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-12-28 15:26:21,684 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-12-28 15:26:21,700 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-12-28 15:26:22,007 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+2024-12-28 15:26:22,649 [main] INFO  liquibase.changelog - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-12-28 15:26:22,816 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2024-12-28 15:26:22,916 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-12-28 15:26:22,916 [main] INFO  liquibase.command - Using deploymentId: 5392382916
+2024-12-28 15:26:22,916 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+2024-12-28 15:26:22,948 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-1.xml::1::andrejsc
+2024-12-28 15:26:22,964 [main] INFO  liquibase.changelog - Table classifiers created
+2024-12-28 15:26:22,964 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-1.xml::1::andrejsc ran successfully in 16ms
+2024-12-28 15:26:22,971 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-1.xml::2::andrejsc
+2024-12-28 15:26:22,976 [main] INFO  liquibase.changelog - Index ix_classifiers_title created
+2024-12-28 15:26:22,976 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-1.xml::2::andrejsc ran successfully in 5ms
+2024-12-28 15:26:22,981 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-2.xml::3::andrejsc
+2024-12-28 15:26:22,981 [main] INFO  liquibase.changelog - Table classifier_values created
+2024-12-28 15:26:22,981 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-2.xml::3::andrejsc ran successfully in 0ms
+2024-12-28 15:26:22,981 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-2.xml::4::andrejsc
+2024-12-28 15:26:22,988 [main] INFO  liquibase.changelog - Foreign key constraint added to classifier_values (classifier_id)
+2024-12-28 15:26:22,988 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-2.xml::4::andrejsc ran successfully in 7ms
+2024-12-28 15:26:22,988 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-2.xml::5::andrejsc
+2024-12-28 15:26:22,996 [main] INFO  liquibase.changelog - Index ix_classifier_values_ic created
+2024-12-28 15:26:22,996 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-2.xml::5::andrejsc ran successfully in 8ms
+2024-12-28 15:26:22,998 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-3.xml::6::andrejsc
+2024-12-28 15:26:23,013 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-12-28 15:26:23,013 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-3.xml::6::andrejsc ran successfully in 15ms
+2024-12-28 15:26:23,018 [main] INFO  liquibase.ui - Running Changeset: db/changelog/changes/changelog-3.xml::7::andrejsc
+2024-12-28 15:26:23,030 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-12-28 15:26:23,030 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/changelog-3.xml::7::andrejsc ran successfully in 12ms
+2024-12-28 15:26:23,030 [main] INFO  liquibase.util - UPDATE SUMMARY
+2024-12-28 15:26:23,030 [main] INFO  liquibase.util - Run:                          7
+2024-12-28 15:26:23,030 [main] INFO  liquibase.util - Previously run:               0
+2024-12-28 15:26:23,030 [main] INFO  liquibase.util - Filtered out:                 0
+2024-12-28 15:26:23,030 [main] INFO  liquibase.util - -------------------------------
+2024-12-28 15:26:23,030 [main] INFO  liquibase.util - Total change sets:            7
+2024-12-28 15:26:23,043 [main] INFO  liquibase.util - Update summary generated
+2024-12-28 15:26:23,044 [main] INFO  liquibase.command - Update command completed successfully.
+2024-12-28 15:26:23,044 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 13
+2024-12-28 15:26:23,044 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-12-28 15:26:23,044 [main] INFO  liquibase.command - Command execution complete
+2024-12-28 15:26:23,175 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-28 15:26:23,279 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-12-28 15:26:23,331 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-12-28 15:26:23,809 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-28 15:26:23,873 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-28 15:26:24,763 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-28 15:26:24,794 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-28 15:26:25,131 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-28 15:26:25,742 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-28 15:26:26,176 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-12-28 15:26:26,201 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-12-28 15:26:26,217 [main] INFO  org.rental.CarRentApplication - Started CarRentApplication in 7.198 seconds (process running for 7.876)
+2024-12-28 15:27:01,219 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-28 15:27:01,219 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-12-28 15:27:01,219 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-12-28 15:27:01,503 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationRequestLogger - REQUEST: {"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","selectedCar":["CAR_PREMIUM","CAR_LUX"]}
+2024-12-28 15:27:01,736 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationResponseLogger - RESPONSE: {"errors":null,"personFirstName":"FirstName","personLastName":"LastName","agreementDateFrom":"2026-05-25","agreementDateTo":"2026-05-29","agreementPremium":0,"carsForRent":null}
+2024-12-28 15:27:01,736 [http-nio-8080-exec-2] INFO  o.r.r.CarRentPriceCalculationRequestExecutionTimeLogger - Request processing time (ms): 259
