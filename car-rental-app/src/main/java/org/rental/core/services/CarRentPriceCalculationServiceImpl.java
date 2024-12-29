@@ -1,6 +1,7 @@
 package org.rental.core.services;
 
-import org.rental.core.underwriting.calculators.CarRentPriceCalculationResult;
+
+import org.rental.core.underwriting.CarRentPriceCalculationResult;
 import org.rental.core.underwriting.CarRentPriceUnderwriting;
 import org.rental.core.validations.CarRentPriceCalculationRequestValidator;
 import org.rental.dto.CarRentPriceCalculationRequest;
