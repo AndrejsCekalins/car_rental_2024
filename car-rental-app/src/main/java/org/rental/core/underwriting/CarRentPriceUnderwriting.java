@@ -5,5 +5,5 @@ import org.rental.dto.CarRentPriceCalculationRequest;
 
 public interface CarRentPriceUnderwriting {
 
-   CarRentPriceCalculationResult calculatePrice(CarRentPriceCalculationRequest request);
+   CarRentPriceCalculationResult calculateAgreementPrice(CarRentPriceCalculationRequest request);
 }

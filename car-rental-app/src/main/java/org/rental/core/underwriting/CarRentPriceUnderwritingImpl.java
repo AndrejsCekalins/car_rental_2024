@@ -14,36 +14,25 @@ import java.util.List;
 @RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 class CarRentPriceUnderwritingImpl implements CarRentPriceUnderwriting {
 
-    private final List<CarRentPriceCalculator> carRentPriceCalculators;
+    final private SelectedCarRentPriceCalculator selectedCarRentPriceCalculator;
 
     @Override
-    public CarRentPriceCalculationResult calculatePrice(CarRentPriceCalculationRequest request) {
-        List<CarRentPrice>carRentPrices = request.getSelectedCar().stream()
-                .map(carIc-> {
-                        BigDecimal carRentPrice = calculatePriceForCar(carIc, request);
-                        return new CarRentPrice(carIc, carRentPrice);
-                })
-                .toList();
-
-        BigDecimal totalPrice =carRentPrices.stream()
-                .map(CarRentPrice::getPrice)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-
+    public CarRentPriceCalculationResult calculateAgreementPrice(CarRentPriceCalculationRequest request) {
+        List<CarRentPrice> carRentPrices = calculatePriceForSelectedCarsRent(request);
+        BigDecimal totalPrice = calculateTotalPrice(carRentPrices);
         return new CarRentPriceCalculationResult(totalPrice, carRentPrices);
     }
 
-    private BigDecimal calculatePriceForCar( String carIc, CarRentPriceCalculationRequest request) {
-        var carRentPriceCalculator =findCarRentPriceCalculator(carIc);
-        return carRentPriceCalculator.calculatePrice(request);
-
+    private List<CarRentPrice> calculatePriceForSelectedCarsRent(CarRentPriceCalculationRequest request){
+        return selectedCarRentPriceCalculator.calculatePriceForAllCarsRent(request);
     }
 
-    private CarRentPriceCalculator findCarRentPriceCalculator (String carIc) {
-        return carRentPriceCalculators.stream()
-                .filter(carRentCalculator ->carRentCalculator.getCarIc().equals(carIc))
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException("Not supported carIc = " + carIc));
+    private  static BigDecimal calculateTotalPrice(List<CarRentPrice> carRentPrices) {
+        return carRentPrices.stream()
+        .map(CarRentPrice::getPrice)
+        .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
+
 
 }
 

@@ -70,7 +70,7 @@ class CarRentPriceCalculationServiceImplTest {
         when(requestValidator.validate(request)).thenReturn(List.of());
         when(request.getPersonFirstName()).thenReturn("personFirstName");
         CarRentPriceCalculationResult carRentPriceCalculationResult = mock(CarRentPriceCalculationResult.class);
-        when(priceUnderwriting.calculatePrice(request)).thenReturn(carRentPriceCalculationResult);
+        when(priceUnderwriting.calculateAgreementPrice(request)).thenReturn(carRentPriceCalculationResult);
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertFalse(response.hasErrors());
         assertEquals(response.getPersonFirstName(), "personFirstName");
@@ -82,7 +82,7 @@ class CarRentPriceCalculationServiceImplTest {
         when(requestValidator.validate(request)).thenReturn(List.of());
         when(request.getPersonLastName()).thenReturn("personLastName");
         CarRentPriceCalculationResult carRentPriceCalculationResult = mock(CarRentPriceCalculationResult.class);
-        when(priceUnderwriting.calculatePrice(request)).thenReturn(carRentPriceCalculationResult);
+        when(priceUnderwriting.calculateAgreementPrice(request)).thenReturn(carRentPriceCalculationResult);
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertFalse(response.hasErrors());
         assertEquals(response.getPersonLastName(), "personLastName");
@@ -95,7 +95,7 @@ class CarRentPriceCalculationServiceImplTest {
         when(requestValidator.validate(request)).thenReturn(List.of());
         when(request.getAgreementDateFrom()).thenReturn(dateFrom);
         CarRentPriceCalculationResult carRentPriceCalculationResult = mock(CarRentPriceCalculationResult.class);
-        when(priceUnderwriting.calculatePrice(request)).thenReturn(carRentPriceCalculationResult);
+        when(priceUnderwriting.calculateAgreementPrice(request)).thenReturn(carRentPriceCalculationResult);
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertFalse(response.hasErrors());
         assertEquals(response.getAgreementDateFrom(), dateFrom);
@@ -108,7 +108,7 @@ class CarRentPriceCalculationServiceImplTest {
         when(requestValidator.validate(request)).thenReturn(List.of());
         when(request.getAgreementDateTo()).thenReturn(dateTo);
         CarRentPriceCalculationResult carRentPriceCalculationResult = mock(CarRentPriceCalculationResult.class);
-        when(priceUnderwriting.calculatePrice(request)).thenReturn(carRentPriceCalculationResult);
+        when(priceUnderwriting.calculateAgreementPrice(request)).thenReturn(carRentPriceCalculationResult);
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertFalse(response.hasErrors());
         assertEquals(response.getAgreementDateTo(), dateTo);
@@ -121,7 +121,7 @@ class CarRentPriceCalculationServiceImplTest {
         when(request.getAgreementDateFrom()).thenReturn(createDate("01.01.2024"));
         when(request.getAgreementDateTo()).thenReturn(createDate("10.01.2024"));
         CarRentPriceCalculationResult carRentPriceCalculationResult = new CarRentPriceCalculationResult(new BigDecimal(9), null);
-        when(priceUnderwriting.calculatePrice(request)).thenReturn(carRentPriceCalculationResult);
+        when(priceUnderwriting.calculateAgreementPrice(request)).thenReturn(carRentPriceCalculationResult);
         CarRentPriceCalculationResponse response = service.calculatePrice(request);
         assertFalse(response.hasErrors());
         assertEquals(response.getAgreementTotalPrice(), new BigDecimal(9));

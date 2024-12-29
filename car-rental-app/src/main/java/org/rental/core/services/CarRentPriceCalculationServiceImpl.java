@@ -27,7 +27,7 @@ public class CarRentPriceCalculationServiceImpl implements CarRentPriceCalculati
     public CarRentPriceCalculationResponse calculatePrice(CarRentPriceCalculationRequest request) {
         List<ValidationError> errors = requestValidator.validate(request);
         return errors.isEmpty()
-                ? buildResponse(request, priceUnderwriting.calculatePrice(request))
+                ? buildResponse(request, priceUnderwriting.calculateAgreementPrice(request))
                 : buildResponse(errors);
     }
 
