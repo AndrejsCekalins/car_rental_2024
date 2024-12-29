@@ -1,8 +1,7 @@
 package org.rental.core.underwriting;
 
-import org.rental.dto.CarRentPriceCalculationRequest;
 
-import java.math.BigDecimal;
+import org.rental.dto.CarRentPriceCalculationRequest;
 
 public interface CarRentPriceUnderwriting {
 

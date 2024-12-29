@@ -1,18 +1,14 @@
 package org.rental.core.services;
 
-import org.rental.core.underwriting.CarRentPriceCalculationResult;
+import org.rental.core.underwriting.calculators.CarRentPriceCalculationResult;
 import org.rental.core.underwriting.CarRentPriceUnderwriting;
 import org.rental.core.validations.CarRentPriceCalculationRequestValidator;
-import org.rental.dto.CarRentPrice;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.rental.dto.CarRentPriceCalculationResponse;
 import org.rental.dto.ValidationError;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class CarRentPriceCalculationServiceImpl implements CarRentPriceCalculationService {
@@ -50,12 +46,4 @@ public class CarRentPriceCalculationServiceImpl implements CarRentPriceCalculati
         response.setCarsForRent(priceCalculationResult.getCarRentPrices());
         return response;
     }
-
-   /* private List<CarRentPrice> buildCarsForRent( CarRentPriceCalculationRequest request) {
-        return request.getSelectedCar().stream()
-                .map(carIc -> new CarRentPrice(carIc, BigDecimal.ZERO))
-                .collect(Collectors.toList());
-    }
-
-    */
 }

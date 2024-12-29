@@ -2,6 +2,7 @@ package org.rental.core.underwriting;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+
 import org.rental.dto.CarRentPrice;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.springframework.stereotype.Component;

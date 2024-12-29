@@ -1,5 +1,6 @@
-package org.rental.core.underwriting;
+package org.rental.core.underwriting.calculators;
 
+import org.rental.core.underwriting.CarRentPriceCalculator;
 import org.rental.core.util.DateTimeUtil;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.springframework.beans.factory.annotation.Autowired;

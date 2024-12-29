@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.rental.core.underwriting.calculators.CarRentPriceCalculationResult;
 import org.rental.dto.CarRentPriceCalculationRequest;
 import org.springframework.test.util.ReflectionTestUtils;
 

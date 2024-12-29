@@ -4,7 +4,7 @@ import org.rental.dto.CarRentPriceCalculationRequest;
 
 import java.math.BigDecimal;
 
-interface CarRentPriceCalculator {
+public interface CarRentPriceCalculator {
 
     BigDecimal calculatePrice(CarRentPriceCalculationRequest request);
 
