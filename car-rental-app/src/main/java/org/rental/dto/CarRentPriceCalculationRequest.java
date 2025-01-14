@@ -26,6 +26,8 @@ public class CarRentPriceCalculationRequest {
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date agreementDateTo;
 
+    private String country;
+
     @JsonAlias("selected_car")
     private List<String> selectedCar;
 }

@@ -4,6 +4,7 @@
   "personLastName": "LastName",
   "agreementDateFrom": "2026-05-25",
   "agreementDateTo": "2026-05-29",
+  "country" : "SPAIN",
   "agreementTotalPrice": 0,
   "carsForRent": [ {
       "carIc": "CAR_PREMIUM",

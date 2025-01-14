@@ -1,7 +1,8 @@
 {
-"personFirstName" : "FirstName",
-"personLastName" : "LastName",
-"agreementDateFrom" : "2026-05-25",
-"agreementDateTo" : "2026-05-29",
-"selectedCar" : null
+  "personFirstName" : "FirstName",
+  "personLastName" : "LastName",
+  "agreementDateFrom" : "2026-05-25",
+  "agreementDateTo" : "2026-05-29",
+  "country" : "SPAIN",
+  "selectedCar" : null
 }

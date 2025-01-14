@@ -26,5 +26,6 @@
   "agreementDateFrom": null,
   "agreementDateTo": null,
   "agreementTotalPrice": null,
+  "country" : null,
   "carsForRent": null
 }
