@@ -1,10 +1,12 @@
 package org.rental.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.rental.core.util.BigDecimalSerializer;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -27,6 +29,7 @@ public class CarRentPriceCalculationResponse extends CoreResponse {
 
     private String country;
 
+    @JsonSerialize(using = BigDecimalSerializer.class)
     private BigDecimal agreementTotalPrice;
 
     private List<CarRentPrice> carsForRent;
