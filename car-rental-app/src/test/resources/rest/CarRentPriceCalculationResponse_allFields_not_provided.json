@@ -18,6 +18,11 @@
   {
     "errorCode":"ERROR_CODE_7",
     "description":"Field personFirstName must not be empty!"
+  },
+
+  {
+    "errorCode":"ERROR_CODE_10",
+    "description":"Field country must not be empty!"
   }
 
 ],

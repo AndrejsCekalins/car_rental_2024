@@ -46,7 +46,7 @@ class EmptySelectedCarValidationTest {
         assertEquals(errorOpt.get().getDescription(), "Field selectedCar must not be empty!");
     }
     @Test
-    public void shouldReturnErrorWhenSelectedCarIsPresent() {
+    public void shouldNotReturnErrorWhenSelectedCarIsPresent() {
         CarRentPriceCalculationRequest request = mock(CarRentPriceCalculationRequest.class);
         when(request.getSelectedCar()).thenReturn(List.of("CAR_PREMIUM"));
         Optional<ValidationError>errorOpt = validation.validate(request);

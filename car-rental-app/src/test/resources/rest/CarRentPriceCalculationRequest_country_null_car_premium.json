@@ -1,0 +1,8 @@
+{
+  "personFirstName" : "FirstName",
+  "personLastName" : "LastName",
+  "agreementDateFrom" : "2026-05-25",
+  "agreementDateTo" : "2026-05-29",
+  "country" : null,
+  "selectedCar" : ["CAR_PREMIUM"]
+}
