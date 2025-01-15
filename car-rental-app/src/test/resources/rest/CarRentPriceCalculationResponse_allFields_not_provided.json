@@ -23,11 +23,16 @@
   {
     "errorCode":"ERROR_CODE_10",
     "description":"Field country must not be empty!"
+  },
+  {
+    "errorCode":"ERROR_CODE_11",
+    "description":"Field personBirthDate must be in the empty!"
   }
 
 ],
   "personFirstName": null,
   "personLastName": null,
+  "personBirthDate" : null,
   "agreementDateFrom": null,
   "agreementDateTo": null,
   "agreementTotalPrice": null,

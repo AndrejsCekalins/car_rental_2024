@@ -140,6 +140,22 @@ public class CarRentPriceCalculationControllerTest {
     }
 
     @Test
+    public void personBirthDateIsNull() throws Exception {
+        executeAndCompare(
+                "rest/CarRentPriceCalculationRequest_personBirthDate_is_null.json",
+                "rest/CarRentPriceCalculationResponse_personBirthDate_is_null.json"
+        );
+    }
+
+    @Test
+    public void personBirthDateInTheFuture() throws Exception {
+        executeAndCompare(
+                "rest/CarRentPriceCalculationRequest_personBirthDate_in_the_future.json",
+                "rest/CarRentPriceCalculationResponse_personBirthDate_in_the_future.json"
+        );
+    }
+
+    @Test
     public void allFieldsNotProvided() throws Exception {
         executeAndCompare(
                 "rest/CarRentPriceCalculationRequest_allFields_not_provided.json",

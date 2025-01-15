@@ -101,4 +101,16 @@ SELECT
   VALUES('SPAIN', 2.50);
 
   INSERT INTO country_default_day_rate(country_ic, default_day_rate)
-  VALUES('JAPAN', 3.50);
+  VALUES('GERMANY', 3.50);
+
+
+  INSERT INTO age_coefficient(age_from, age_to, coefficient)
+  VALUES(18, 26, 2.0);
+
+  INSERT INTO age_coefficient(age_from, age_to, coefficient)
+  VALUES(27, 70, 1.0);
+
+  INSERT INTO age_coefficient(age_from, age_to, coefficient)
+  VALUES(71, 150, 1.5);
+
+
