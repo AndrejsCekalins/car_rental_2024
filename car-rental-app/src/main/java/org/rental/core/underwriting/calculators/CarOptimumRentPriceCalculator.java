@@ -24,7 +24,7 @@ class CarOptimumRentPriceCalculator implements CarRentPriceCalculator {
     @Override
     public BigDecimal calculatePrice(CarRentPriceCalculationRequest request)
     {
-        var daysCount =calculatePrice(request);
+        var daysCount =calculateDayCount(request);
         var countryDefaultRate = findCountryDefaultDayRate(request);
         return countryDefaultRate.multiply(daysCount)
                 .setScale(2, RoundingMode.HALF_UP);

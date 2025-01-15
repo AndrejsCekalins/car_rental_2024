@@ -126,16 +126,16 @@ public class CarRentPriceCalculationControllerTest {
     @Test
     public void countryIsEmptyWhenCarPremiumSelected() throws Exception {
         executeAndCompare(
-                "rest/CarRentPriceCalculationRequest_country_empty_car_premium.json",
-                "rest/CarRentPriceCalculationResponse_country_empty_car_premium.json"
+                "rest/CarRentPriceCalculationRequest_country_empty_car_optimum.json",
+                "rest/CarRentPriceCalculationResponse_country_empty_car_optimum.json"
         );
     }
 
     @Test
     public void countryIsNullWhenCarPremiumSelected() throws Exception {
         executeAndCompare(
-                "rest/CarRentPriceCalculationRequest_country_null_car_premium.json",
-                "rest/CarRentPriceCalculationResponse_country_null_car_premium.json"
+                "rest/CarRentPriceCalculationRequest_country_null_car_optimum.json",
+                "rest/CarRentPriceCalculationResponse_country_null_car_optimum.json"
         );
     }
 

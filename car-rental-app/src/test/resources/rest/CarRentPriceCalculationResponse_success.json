@@ -5,10 +5,10 @@
   "agreementDateFrom": "2026-05-25",
   "agreementDateTo": "2026-05-29",
   "country" : "SPAIN",
-  "agreementTotalPrice": 0.00,
+  "agreementTotalPrice": 10.00,
   "carsForRent": [ {
-      "carIc": "CAR_PREMIUM",
-      "price": 0.00
+      "carIc": "CAR_OPTIMUM",
+      "price": 10.00
     }, {
       "carIc": "CAR_LUX",
       "price": 0.00
