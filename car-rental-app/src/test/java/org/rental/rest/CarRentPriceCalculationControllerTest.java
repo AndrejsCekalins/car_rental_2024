@@ -29,8 +29,15 @@ public class CarRentPriceCalculationControllerTest {
     @Test
     public void successRequest() throws Exception {
         executeAndCompare(
-                "rest/CarRentPriceCalculationRequest_success.json",
-                "rest/CarRentPriceCalculationResponse_success.json"
+                "rest/CarRentPriceCalculationRequest_two_cars_one_carLux_success.json",
+                "rest/CarRentPriceCalculationResponse_two_cars_one_carLux_success.json"
+        );
+    }
+    @Test
+    public void successCarLuxRequest() throws Exception {
+        executeAndCompare(
+                "rest/CarRentPriceCalculationRequest_two_cars_one_carLux_success.json",
+                "rest/CarRentPriceCalculationResponse_two_cars_one_carLux_success.json"
         );
     }
 
@@ -160,6 +167,38 @@ public class CarRentPriceCalculationControllerTest {
         executeAndCompare(
                 "rest/CarRentPriceCalculationRequest_allFields_not_provided.json",
                 "rest/CarRentPriceCalculationResponse_allFields_not_provided.json"
+        );
+    }
+
+    @Test
+    public void carLuxInsuranceCoverTypeEmpty() throws Exception {
+        executeAndCompare(
+                "rest/CarRentPriceCalculationRequest_carLuxInsuranceCoverType_is_empty.json",
+                "rest/CarRentPriceCalculationResponse_carLuxInsuranceCoverType_is_empty.json"
+        );
+    }
+
+    @Test
+    public void carLuxInsuranceCoverTypeNull() throws Exception {
+        executeAndCompare(
+                "rest/CarRentPriceCalculationRequest_carLuxInsuranceCoverType_is_null.json",
+                "rest/CarRentPriceCalculationResponse_carLuxInsuranceCoverType_is_null.json"
+        );
+    }
+
+    @Test
+    public void carLuxInsuranceCoverTypeNotSupported() throws Exception {
+        executeAndCompare(
+                "rest/CarRentPriceCalculationRequest_carLuxInsuranceCoverType_not_supported.json",
+                "rest/CarRentPriceCalculationResponse_carLuxInsuranceCoverType_not_supported.json"
+        );
+    }
+
+    @Test
+    public void countryNotSupported() throws Exception {
+        executeAndCompare(
+                "rest/CarRentPriceCalculationRequest_country_not_supported.json",
+                "rest/CarRentPriceCalculationResponse_country_not_supported.json"
         );
     }
 

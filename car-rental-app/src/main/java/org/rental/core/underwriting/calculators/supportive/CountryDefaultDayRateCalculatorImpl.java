@@ -1,4 +1,4 @@
-package org.rental.core.underwriting.calculators.optimum;
+package org.rental.core.underwriting.calculators.supportive;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -11,11 +11,13 @@ import java.math.BigDecimal;
 
 @Component
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
-class CountryDefaultDayRateCalculator {
+class CountryDefaultDayRateCalculatorImpl implements CountryDefaultDayRateCalculator{
 
     private  final CountryDefaultDayRateRepository countryDefaultDayRateRepository;
 
-    BigDecimal calculate(CarRentPriceCalculationRequest request) {
+
+    @Override
+    public BigDecimal calculate(CarRentPriceCalculationRequest request) {
         return countryDefaultDayRateRepository.findByCountryIc(request.getCountry())
                 .map(CountryDefaultDayRate::getDefaultDayRate)
                 .orElseThrow(()-> new RuntimeException("Country day rate not found by country id = " + request.getCountry()));

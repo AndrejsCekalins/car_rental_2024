@@ -2,9 +2,10 @@ package org.rental.core.underwriting.calculators.optimum;
 
 import lombok.AllArgsConstructor;
 import org.rental.core.underwriting.CarRentPriceCalculator;
-import org.rental.core.util.DateTimeUtil;
+import org.rental.core.underwriting.calculators.supportive.AgeCoefficientCalculator;
+import org.rental.core.underwriting.calculators.supportive.CountryDefaultDayRateCalculator;
+import org.rental.core.underwriting.calculators.supportive.DayCountCalculator;
 import org.rental.dto.CarRentPriceCalculationRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

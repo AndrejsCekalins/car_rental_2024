@@ -1,4 +1,4 @@
-package org.rental.core.underwriting.calculators.optimum;
+package org.rental.core.underwriting.calculators.supportive;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,7 +27,7 @@ class DayCountCalculatorTest {
 
 
     @InjectMocks
-    private DayCountCalculator calculator;
+    private DayCountCalculatorImpl calculator;
 
     private CarRentPriceCalculationRequest request;
 

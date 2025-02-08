@@ -6,6 +6,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.rental.core.underwriting.calculators.supportive.AgeCoefficientCalculator;
+import org.rental.core.underwriting.calculators.supportive.CountryDefaultDayRateCalculator;
+import org.rental.core.underwriting.calculators.supportive.DayCountCalculator;
 import org.rental.dto.CarRentPriceCalculationRequest;
 
 import java.math.BigDecimal;
@@ -33,7 +36,7 @@ class CarOptimumRentPriceCalculatorTest {
 
 
     @Test
-    void shouldCalculatePremiumCorrectly() {
+    void shouldCalculateCarPremiumCorrectly() {
         BigDecimal daysCount =BigDecimal.valueOf(10);
         BigDecimal countryDefaultRate = BigDecimal.valueOf(20);
         BigDecimal ageCoefficient = BigDecimal.valueOf(1.2);

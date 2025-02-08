@@ -45,6 +45,7 @@ public class CarRentPriceCalculationServiceImpl implements CarRentPriceCalculati
         response.setAgreementDateFrom(request.getAgreementDateFrom());
         response.setAgreementDateTo(request.getAgreementDateTo());
         response.setCountry(request.getCountry());
+        response.setCarLuxInsuranceCoverType(request.getCarLuxInsuranceCoverType());
         response.setAgreementTotalPrice(priceCalculationResult.getTotalPrice());
         response.setCarsForRent(priceCalculationResult.getCarRentPrices());
         return response;

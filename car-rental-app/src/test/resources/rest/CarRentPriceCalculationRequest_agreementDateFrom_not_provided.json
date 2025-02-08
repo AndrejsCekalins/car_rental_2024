@@ -5,5 +5,5 @@
   "agreementDateFrom" : null,
   "agreementDateTo" : "2026-05-29",
   "country" : "SPAIN",
-  "selectedCar" : ["CAR_PREMIUM", "CAR_LUX"]
+  "selectedCar" : ["CAR_PREMIUM"]
 }

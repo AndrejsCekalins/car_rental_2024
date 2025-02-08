@@ -30,6 +30,10 @@ public class CarRentPriceCalculationRequest {
 
     private String country;
 
+    private String carLuxInsuranceCoverType;
+
     @JsonAlias("selected_car")
     private List<String> selectedCar;
+
+
 }

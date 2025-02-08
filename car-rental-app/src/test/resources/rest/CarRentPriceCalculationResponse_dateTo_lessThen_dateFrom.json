@@ -12,5 +12,6 @@
   "agreementDateTo": null,
   "agreementTotalPrice": null,
   "country" : null,
+  "carLuxInsuranceCoverType": null,
   "carsForRent": null
 }

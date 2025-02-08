@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
+    <changeSet author = "andrejsc" id = "16">
+        <createTable tableName="car_lux_insurance_cover_type">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="car_lux_insurance_cover_type_ic" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="coefficient" type="DECIMAL(10,2)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet author="andrejsc" id="17">
+        <createIndex indexName="ix_car_lux_insurance_cover_type_ic"
+                     tableName="car_lux_insurance_cover_type"
+                     unique="true">
+            <column name="car_lux_insurance_cover_type_ic"/>
+        </createIndex>
+    </changeSet>
+
+
+    <changeSet author = "andrejsc" id = "18">
+        <sql>
+            INSERT INTO classifiers(title, description)
+            VALUES('CAR_LUX_INSURANCE_COVER_TYPE', 'Car lux insurance cover type classifier');
+        </sql>
+    </changeSet>
+
+
+    <changeSet author = "andrejsc" id = "19">
+        <sql>
+
+            INSERT INTO classifier_values(
+            classifier_id,
+            ic,
+            description)
+            SELECT
+            cl.id,
+            'SMART_INSURANCE',
+            'Car lux smart insurance cover type'
+            FROM classifiers as cl
+            WHERE cl.title = 'CAR_LUX_INSURANCE_COVER_TYPE';
+
+            INSERT INTO classifier_values(
+            classifier_id,
+            ic,
+            description)
+            SELECT
+            cl.id,
+            'FULL_INSURANCE',
+            'Car lux full insurance cover type'
+            FROM classifiers as cl
+            WHERE cl.title = 'CAR_LUX_INSURANCE_COVER_TYPE';
+
+            INSERT INTO classifier_values(
+            classifier_id,
+            ic,
+            description)
+            SELECT
+            cl.id,
+            'PLATINUM_INSURANCE',
+            'Car lux platinum insurance cover type'
+            FROM classifiers as cl
+            WHERE cl.title = 'CAR_LUX_INSURANCE_COVER_TYPE';
+        </sql>
+    </changeSet>
+
+
+    <changeSet author = "andrejsc" id = "20">
+        <sql>
+            INSERT INTO car_lux_insurance_cover_type(car_lux_insurance_cover_type_ic, coefficient)
+            VALUES('SMART_INSURANCE', 1.0);
+
+            INSERT INTO car_lux_insurance_cover_type(car_lux_insurance_cover_type_ic, coefficient)
+            VALUES('FULL_INSURANCE', 1.2);
+
+            INSERT INTO car_lux_insurance_cover_type(car_lux_insurance_cover_type_ic, coefficient)
+            VALUES('PLATINUM_INSURANCE', 1.5);
+        </sql>
+    </changeSet>
+
+
+</databaseChangeLog>

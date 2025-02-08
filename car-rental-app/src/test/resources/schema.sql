@@ -40,3 +40,13 @@ CREATE TABLE age_coefficient (
   coefficient DECIMAL(10,2) NOT NULL,
   PRIMARY KEY (id)
 );
+
+CREATE TABLE car_lux_insurance_cover_type (
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  car_lux_insurance_cover_type_ic VARCHAR(200) NOT NULL,
+  coefficient DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE UNIQUE INDEX ix_car_lux_insurance_cover_type_ic
+ON car_lux_insurance_cover_type (car_lux_insurance_cover_type_ic);

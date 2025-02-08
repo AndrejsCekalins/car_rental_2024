@@ -1,4 +1,4 @@
-package org.rental.core.underwriting.calculators.optimum;
+package org.rental.core.underwriting.calculators.supportive;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,6 +12,7 @@ import org.rental.core.domain.AgeCoefficient;
 import org.rental.core.repositories.AgeCoefficientRepository;
 import org.rental.core.util.DateTimeUtil;
 import org.rental.dto.CarRentPriceCalculationRequest;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -35,7 +36,7 @@ class AgeCoefficientCalculatorTest {
     private AgeCoefficientRepository ageCoefficientRepository;
 
     @InjectMocks
-    private AgeCoefficientCalculator calculator;
+    private AgeCoefficientCalculatorImpl calculator;
 
     private CarRentPriceCalculationRequest request;
 
@@ -50,6 +51,7 @@ class AgeCoefficientCalculatorTest {
 
     @Test
     void shouldFindCoefficientWhenAgeCoefficientExists() {
+        ReflectionTestUtils.setField(calculator, "ageCoefficientEnabled", true);
         BigDecimal expectedCoefficient = BigDecimal.valueOf(1.2);
         LocalDate currentDate = LocalDate.now();
 
@@ -67,7 +69,7 @@ class AgeCoefficientCalculatorTest {
 
     @Test
     void shouldThrowExceptionWhenAgeCoefficientNotFound() {
-
+        ReflectionTestUtils.setField(calculator, "ageCoefficientEnabled", true);
         LocalDate currentDate = LocalDate.now();
 
         when(dateTimeUtil.getCurrentDateTime()).thenReturn(Date.from(currentDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));

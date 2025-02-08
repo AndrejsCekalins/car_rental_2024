@@ -1,0 +1,16 @@
+{
+  "errors": null,
+  "personFirstName": "FirstName",
+  "personLastName": "LastName",
+  "personBirthDate": "2000-05-29",
+  "agreementDateFrom": "2026-05-25",
+  "agreementDateTo": "2026-05-29",
+  "country": "SPAIN",
+  "agreementTotalPrice": 20.00,
+  "carsForRent": [
+    {
+      "carIc": "CAR_OPTIMUM",
+      "price": 20.00
+    }
+  ]
+}

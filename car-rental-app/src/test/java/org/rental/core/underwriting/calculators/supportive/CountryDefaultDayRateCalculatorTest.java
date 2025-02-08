@@ -1,4 +1,4 @@
-package org.rental.core.underwriting.calculators.optimum;
+package org.rental.core.underwriting.calculators.supportive;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,11 +21,12 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class CountryDefaultDayRateCalculatorTest {
 
+
     @Mock
     private CountryDefaultDayRateRepository countryDefaultDayRateRepository;
 
     @InjectMocks
-    private CountryDefaultDayRateCalculator calculator;
+    private CountryDefaultDayRateCalculatorImpl calculator;
 
     private CarRentPriceCalculationRequest request;
 

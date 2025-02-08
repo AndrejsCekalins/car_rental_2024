@@ -1,5 +1,6 @@
 package org.rental.dto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
@@ -31,6 +32,8 @@ public class CarRentPriceCalculationResponse extends CoreResponse {
     private Date agreementDateTo;
 
     private String country;
+
+    private String carLuxInsuranceCoverType;
 
     @JsonSerialize(using = BigDecimalSerializer.class)
     private BigDecimal agreementTotalPrice;
