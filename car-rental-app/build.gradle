@@ -51,3 +51,13 @@ dependencies {
 task prepareKotlinBuildScriptModel {
 
 }
+
+jar {
+    enabled = false
+}
+
+bootJar {
+    enabled = true
+    archiveBaseName = 'car-rental'
+    archiveVersion = '1.0.0'
+}
